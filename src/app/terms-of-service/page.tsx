@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
@@ -16,7 +15,7 @@ export default function TermsOfService() {
           <p className="mb-6 opacity-70 uppercase tracking-widest text-xs">Last Updated: March 2026</p>
           
           <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">1. Acceptance of Terms</h2>
-          <p className="mb-4">By booking or using the services provided by Mediterranean Aura ("we," "our," or "us"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+          <p className="mb-4">By booking or using the services provided by Mediterranean Aura (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
 
           <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">2. Services Information</h2>
           <p className="mb-4">Mediterranean Aura provides luxury wellness and massage experiences at your chosen villa or location. All services are subject to availability and prior booking. We reserve the right to modify or discontinue any service with appropriate notice.</p>

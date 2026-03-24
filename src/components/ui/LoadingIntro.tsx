@@ -12,7 +12,7 @@ export default function LoadingIntro() {
   useLayoutEffect(() => {
     if (!mounted) return;
 
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {
           document.body.style.overflow = "";

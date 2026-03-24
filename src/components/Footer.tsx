@@ -20,7 +20,6 @@ export function Footer() {
       <div className="relative z-10 flex flex-col items-center justify-center text-secondary px-8 py-16 gap-10 md:gap-20 md:px-20 md:py-32 w-full max-w-screen-2xl mx-auto">
         <div className="flex flex-col md:flex-row w-full items-center md:items-start justify-between gap-12 md:gap-8">
           
-          {/* Left Column: Contact & Location */}
           <div className="flex flex-col items-center md:items-start gap-4 text-center md:text-left md:w-1/3">
             <p className="font-canela text-[1.8rem] md:text-[2.6rem] font-light text-secondary tracking-wide">
               Rhodes Island, Greece
@@ -41,7 +40,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Center Column: Logo */}
           <div className="flex flex-col items-center gap-1 md:w-1/3 md:mt-0 mt-4">
             <div className="font-canela font-light text-secondary text-[3.5rem] md:text-[4.5rem] leading-none tracking-wide text-center">
               <div className="leading-[1]">LO</div>
@@ -52,7 +50,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Right Column: Actions & Socials */}
           <div className="flex flex-col items-center md:items-end gap-10 md:gap-12 md:w-1/3">
             <button className="rounded-sm w-full max-w-[320px] md:max-w-none md:w-auto bg-secondary text-primary font-apercu text-[0.7rem] md:text-[0.85rem] tracking-[0.22em] uppercase py-4 px-12 hover:bg-white transition-colors duration-300">
               BOOK NOW
@@ -97,7 +94,6 @@ export function Footer() {
 
         <div className="w-full h-[1px] bg-secondary/25 my-4 md:my-8" />
 
-        {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 w-full">
           <p className="font-apercu text-[0.55rem] md:text-[0.65rem] tracking-[0.14em] text-secondary/60 text-center md:text-left">
             © 2026 Mediterranean Aura. All rights reserved.

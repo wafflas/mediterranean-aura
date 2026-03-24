@@ -7,7 +7,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const comp = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.fromTo(
         comp.current,
         { opacity: 0, filter: "blur(5px)" },
