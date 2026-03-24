@@ -11,6 +11,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#21343E",
+        secondary: "#DFD8CF",
+      },
+      fontFamily: {
+        apercu: ["var(--font-apercu)", "monospace"],
+        canela: ["var(--font-canela)", "serif"],
       },
     },
   },

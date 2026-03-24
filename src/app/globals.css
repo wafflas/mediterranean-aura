@@ -19,3 +19,27 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #DFD8CF;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #21343E;
+  border-radius: 20px;
+  border: 3px solid #DFD8CF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1a2931;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #21343E #DFD8CF;
+}
