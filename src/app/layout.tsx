@@ -85,9 +85,19 @@ export default async function RootLayout({
   const hasCookieConsent = Boolean(
     cookieStore.get("mediterranean-aura-cookie-consent")?.value,
   );
+  const shouldPreconnectAnalytics =
+    hasCookieConsent && Boolean(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
 
   return (
     <html lang="en">
+      <head>
+        {shouldPreconnectAnalytics ? (
+          <>
+            <link rel="preconnect" href="https://www.googletagmanager.com" />
+            <link rel="preconnect" href="https://www.google-analytics.com" />
+          </>
+        ) : null}
+      </head>
       <body
         className={`${apercuMonoPro.variable} ${canela.variable} antialiased text-primary bg-secondary`}
       >

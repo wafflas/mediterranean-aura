@@ -82,13 +82,15 @@ export function CookieConsent({ hasConsent }: CookieConsentProps) {
           <Link
             href="/privacy-policy"
             className="text-primary hover:opacity-70 font-apercu text-[10px] md:text-[11px] tracking-widest uppercase transition-opacity duration-300"
+            aria-label="Read more about our privacy policy"
           >
-            Read More
+            Read Privacy Policy
           </Link>
           <button
             onClick={acceptCookies}
             disabled={isSubmitting}
             className="rounded-sm bg-primary text-secondary font-apercu text-[10px] md:text-[11px] tracking-widest uppercase px-6 py-3 hover:bg-primary/90 transition-colors duration-300"
+            aria-label="Accept cookies"
           >
             Accept
           </button>
