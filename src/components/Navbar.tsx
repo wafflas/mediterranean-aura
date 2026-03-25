@@ -44,7 +44,7 @@ export default function Navbar() {
 
     if (!overlay || !l1 || !l2 || !menuLabel || !closeLabel) return;
 
-    gsap.set(overlay, { yPercent: -100, opacity: 0 });
+    gsap.set(overlay, { yPercent: -100, opacity: 0, pointerEvents: 'none' });
     gsap.set(closeLabel, { opacity: 0, y: 6 });
     gsap.set(links, { opacity: 0, y: 20 });
 
@@ -54,6 +54,7 @@ export default function Navbar() {
     tl.to(overlay, {
       yPercent: 0,
       opacity: 1,
+      pointerEvents: 'auto',
       duration: 0.55,
       ease: "power3.out",
     });
@@ -176,7 +177,7 @@ export default function Navbar() {
 
       <div
         ref={overlayRef}
-        className="fixed inset-0 z-[55] bg-secondary flex flex-col px-8 md:px-14 pt-28 pb-12 overflow-y-auto opacity-0 -translate-y-full"
+        className="fixed inset-0 z-[55] bg-secondary flex flex-col px-8 md:px-14 pt-28 pb-12 overflow-y-auto opacity-0"
         aria-hidden={!isOpen}
       >
         <ul ref={linksRef} className="flex flex-col gap-2 flex-1">
