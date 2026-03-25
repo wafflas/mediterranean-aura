@@ -8,7 +8,10 @@ import "swiper/css";
 
 export default function Rituals() {
   return (
-    <div className="flex flex-col px-6 py-10 w-full overflow-hidden max-w-[100vw]">
+    <div
+      id="rituals"
+      className="flex flex-col px-6 py-10 w-full overflow-hidden max-w-[100vw] scroll-mt-24 md:scroll-mt-28"
+    >
       <SectionTitle title="RITUALS" className="mb-10" />
       
       {/* Mobile Vertical Stack */}

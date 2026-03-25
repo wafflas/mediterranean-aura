@@ -1,10 +1,18 @@
 "use client";
 import gsap from "gsap";
 import React, { useLayoutEffect, useRef, useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function LoadingIntro() {
   const comp = useRef<HTMLDivElement>(null);
   const [isDone, setIsDone] = useState(false);
+const pathname = usePathname();
+
+useEffect(() => {
+  if (pathname !== "/") {
+    setIsDone(true);
+  }
+}, [pathname]);
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);

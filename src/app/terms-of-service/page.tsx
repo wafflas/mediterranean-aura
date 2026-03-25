@@ -26,7 +26,10 @@ export default function TermsOfService() {
           <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">4. Health and Liability</h2>
           <p className="mb-4">Clients are required to disclose any relevant medical conditions, allergies, or injuries prior to their session. Mediterranean Aura and its therapists are not liable for any adverse reactions or injuries arising from undisclosed health conditions.</p>
 
-          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">5. Contact</h2>
+          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">5. Website Use and Cookies</h2>
+          <p className="mb-4">Our website may use cookies and analytics technologies to improve user experience and understand website performance. Analytics tools are activated only after consent is provided through our cookie banner. Please review our Privacy Policy for details about data processing and your choices.</p>
+
+          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">6. Contact</h2>
           <p className="mb-4">If you have any questions about these Terms, please contact us at info@mediterraneanaura.com or call us at +30 694 745 9658.</p>
         </div>
       </div>

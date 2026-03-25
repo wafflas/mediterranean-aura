@@ -10,13 +10,12 @@ export default function Template({ children }: { children: React.ReactNode }) {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         comp.current,
-        { opacity: 0, filter: "blur(5px)" },
+        { opacity: 0 },
         { 
             opacity: 1, 
-            filter: "blur(0px)", 
             duration: 0.7, 
             ease: "power2.out",
-            clearProps: "all"
+            clearProps: "opacity"
         }
       );
     }, comp);

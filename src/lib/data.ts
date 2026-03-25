@@ -13,7 +13,7 @@ export const services: Service[] = [
     description:
       "A highly effective rehabilitation technique combining elements of acupressure and yoga. Targets the most common tension zones. For particularly stiff muscles, this can be intensely powerful.",
     price: 80,
-    image: "/images/services/back-neck-massage.png",
+    image: "/images/services/back-neck-massage.webp",
     durations: ["45 MIN", "60 MIN", "90 MIN"],
   },
   {
@@ -21,7 +21,7 @@ export const services: Service[] = [
     description:
       "Precise pressure applied to points on the feet that correspond to organs and systems throughout the body. Surprisingly powerful — many guests experience a full-body release.",
     price: 95,
-    image: "/images/services/reflexology.png",
+    image: "/images/services/reflexology.webp",
     durations: ["60 MIN", "90 MIN"],
   },
   {
@@ -29,7 +29,7 @@ export const services: Service[] = [
     description:
       "A flowing full-body treatment using long, warm strokes to ease tension and restore circulation. Ideal after a day under the Mediterranean sun. Pure, effortless restoration.",
     price: 110,
-    image: "/images/services/relax-massage.png",
+    image: "/images/services/relax-massage.webp",
     durations: ["75 MIN", "90 MIN"],
   },
   {
@@ -37,7 +37,7 @@ export const services: Service[] = [
     description:
       "A deeply sensory ritual combining skilled touch with pure essential oil blends — lavender, neroli, eucalyptus. Calms the nervous system on contact. The scent stays with you for hours.",
     price: 100,
-    image: "/images/services/aromatherapy.png",
+    image: "/images/services/aromatherapy.webp",
     durations: ["60 MIN", "90 MIN"],
   },
   {
@@ -45,7 +45,7 @@ export const services: Service[] = [
     description:
       "Targets deeper layers of muscle and connective tissue to release chronic tension and restore mobility. Pressure is firm and intentional — deeply effective for persistent knots.",
     price: 110,
-    image: "/images/services/deep-tissue.png",
+    image: "/images/services/deep-tissue.webp",
     durations: ["75 MIN", "90 MIN"],
   },
   {
@@ -53,7 +53,7 @@ export const services: Service[] = [
     description:
       "Two therapists, one guest, perfect synchrony. The doubled sensation deepens relaxation beyond what the mind can track. A rare and profoundly immersive experience.",
     price: 200,
-    image: "/images/services/four-hands.png",
+    image: "/images/services/four-hands.webp",
     durations: ["75 MIN", "90 MIN"],
   },
   {
@@ -61,7 +61,7 @@ export const services: Service[] = [
     description:
       "An ancient assisted-stretching technique using rhythmic pressure and yoga-inspired movement. No oils. Performed on a mat, it restores flexibility and rebalances energy flow through the body.",
     price: 200,
-    image: "/images/services/thai.png",
+    image: "/images/services/thai.webp",
     durations: ["75 MIN", "90 MIN"],
   },
   {
@@ -69,7 +69,7 @@ export const services: Service[] = [
     description:
       "Two guests, two therapists, one shared moment of stillness. A romantic and restorative experience, performed side-by-side on your private villa terrace overlooking the sea.",
     price: 200,
-    image: "/images/services/couples.png",
+    image: "/images/services/couples.webp",
     durations: ["75 MIN", "90 MIN"],
   },
 ];

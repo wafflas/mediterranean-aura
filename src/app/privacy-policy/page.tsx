@@ -23,10 +23,16 @@ export default function PrivacyPolicy() {
           <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">3. Data Security and Sharing</h2>
           <p className="mb-4">We take reasonable measures to help protect your personal information from loss, theft, misuse, unauthorized access, disclosure, alteration, and destruction. We do not sell or share your personal information with third parties for their marketing purposes.</p>
 
-          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">4. Your Rights</h2>
+          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">4. Cookies and Analytics</h2>
+          <p className="mb-4">Our website uses cookies and similar technologies to improve website performance and understand visitor behavior. We use Google Analytics to collect aggregated usage data, such as visited pages, session duration, and approximate location information. Google Analytics is loaded only after you provide consent through our cookie banner.</p>
+
+          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">5. Consent and Cookie Choices</h2>
+          <p className="mb-4">When you click &quot;Accept&quot; on our cookie banner, we store your consent choice in a secure cookie so your preference can be remembered on future visits. If you prefer, you can remove cookies in your browser settings at any time, which may cause the banner to appear again.</p>
+
+          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">6. Your Rights</h2>
           <p className="mb-4">You may request access to, correction, or deletion of your personal information at any time. If you wish to exercise these rights, please contact us using the information provided below.</p>
 
-          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">5. Contact Us</h2>
+          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">7. Contact Us</h2>
           <p className="mb-4">For privacy-related inquiries, please reach out via email at info@mediterraneanaura.com or by phone at +30 694 745 9658.</p>
         </div>
       </div>

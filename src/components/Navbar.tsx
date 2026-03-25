@@ -9,8 +9,8 @@ import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
+  { label: "Concept", href: "#concept" },
+  { label: "Rituals", href: "#rituals" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -44,7 +44,7 @@ export default function Navbar() {
 
     if (!overlay || !l1 || !l2 || !menuLabel || !closeLabel) return;
 
-    gsap.set(overlay, { yPercent: -100, opacity: 0, pointerEvents: 'none' });
+    gsap.set(overlay, { yPercent: -100, opacity: 0, pointerEvents: "none" });
     gsap.set(closeLabel, { opacity: 0, y: 6 });
     gsap.set(links, { opacity: 0, y: 20 });
 
@@ -54,7 +54,7 @@ export default function Navbar() {
     tl.to(overlay, {
       yPercent: 0,
       opacity: 1,
-      pointerEvents: 'auto',
+      pointerEvents: "auto",
       duration: 0.55,
       ease: "power3.out",
     });
@@ -110,7 +110,7 @@ export default function Navbar() {
 
   const navBg =
     !isOpen && (!isHome || isScrolled)
-      ? "bg-secondary/95 backdrop-blur-sm shadow-sm"
+      ? "bg-secondary shadow-sm"
       : "bg-transparent";
 
   const logoColorFill = isOpen || !isHome || isScrolled ? "#21343E" : "white";
@@ -167,8 +167,8 @@ export default function Navbar() {
           }}
           className={`rounded-sm font-apercu text-[0.6rem] tracking-[0.18em] uppercase border px-2 py-1 transition-all duration-300 ${
             isOpen || !isHome || isScrolled
-              ? "border-primary/50 hover:bg-primary hover:text-secondary"
-              : "border-white/70 hover:bg-white hover:text-primary"
+              ? "btn-hover-dark border-primary/50"
+              : "btn-hover-light border-white/70"
           }`}
         >
           RESERVE
@@ -181,17 +181,31 @@ export default function Navbar() {
         aria-hidden={!isOpen}
       >
         <ul ref={linksRef} className="flex flex-col gap-2 flex-1">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                onClick={toggleMenu}
-                className="font-canela font-light text-primary text-[3rem] md:text-[5rem] leading-none hover:opacity-50 transition-opacity duration-300 block py-2 border-b border-primary/10"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isHashLink = link.href.startsWith("#");
+
+            return (
+              <li key={link.href}>
+                {isHashLink ? (
+                  <a
+                    href={link.href}
+                    onClick={toggleMenu}
+                    className="font-canela font-light text-primary text-[3rem] md:text-[5rem] leading-none hover:opacity-50 transition-opacity duration-300 block py-2 border-b border-primary/10"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    onClick={toggleMenu}
+                    className="font-canela font-light text-primary text-[3rem] md:text-[5rem] leading-none hover:opacity-50 transition-opacity duration-300 block py-2 border-b border-primary/10"
+                  >
+                    {link.label}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
 
         <div className="mt-10 pt-6 border-t border-primary/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">

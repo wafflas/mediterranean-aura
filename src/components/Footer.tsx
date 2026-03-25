@@ -1,14 +1,21 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { IconInstagram, IconWhatsapp, IconFacebook } from "@/lib/icons";
 import Logo from "./ui/Logo";
+import { useReservation } from "./ReservationProvider";
 
 export function Footer() {
+  const { openReservation } = useReservation();
+
   return (
-    <footer className="relative w-full overflow-hidden">
+    <footer
+      id="contact"
+      className="relative w-full overflow-hidden scroll-mt-24 md:scroll-mt-28"
+    >
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/footerBackround.png"
+          src="/images/footerBackround.webp"
           alt="Mediterranean footer background"
           fill
           className="object-cover object-center"
@@ -19,7 +26,6 @@ export function Footer() {
 
       <div className="relative z-10 flex flex-col items-center justify-center text-secondary px-8 py-16 gap-10 md:gap-20 md:px-20 md:py-32 w-full max-w-screen-2xl mx-auto">
         <div className="flex flex-col md:flex-row w-full items-center md:items-start justify-between gap-12 md:gap-8">
-          
           <div className="flex flex-col items-center md:items-start gap-4 text-center md:text-left md:w-1/3">
             <p className="font-canela text-[1.8rem] md:text-[2.6rem] font-light text-secondary tracking-wide">
               Rhodes Island, Greece
@@ -51,7 +57,10 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col items-center md:items-end gap-10 md:gap-12 md:w-1/3">
-            <button className="rounded-sm w-full max-w-[320px] md:max-w-none md:w-auto bg-secondary text-primary font-apercu text-[0.7rem] md:text-[0.85rem] tracking-[0.22em] uppercase py-4 px-12 hover:bg-white transition-colors duration-300">
+            <button
+              onClick={openReservation}
+              className="btn-hover-dark rounded-sm w-full max-w-[320px] md:max-w-none md:w-auto bg-secondary text-primary font-apercu text-[0.7rem] md:text-[0.85rem] tracking-[0.22em] uppercase py-4 px-12 transition-colors duration-300"
+            >
               BOOK NOW
             </button>
             <div className="flex items-center gap-6 md:gap-8">
@@ -95,19 +104,19 @@ export function Footer() {
         <div className="w-full h-[1px] bg-secondary/25 my-4 md:my-8" />
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 w-full">
-          <p className="font-apercu text-[0.55rem] md:text-[0.65rem] tracking-[0.14em] text-secondary/60 text-center md:text-left">
+          <p className="font-apercu text-[0.55rem] md:text-[0.65rem] tracking-[0.14em] text-secondary/90 text-center md:text-left">
             © 2026 Mediterranean Aura. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link
               href="/privacy-policy"
-              className="font-apercu text-[0.55rem] md:text-[0.7rem] tracking-[0.12em] text-secondary/50 hover:text-secondary/80 transition-colors uppercase"
+              className="font-apercu text-[0.55rem] md:text-[0.7rem] tracking-[0.12em] text-secondary/90 hover:text-secondary transition-colors uppercase"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-of-service"
-              className="font-apercu text-[0.55rem] md:text-[0.7rem] tracking-[0.12em] text-secondary/50 hover:text-secondary/80 transition-colors uppercase"
+              className="font-apercu text-[0.55rem] md:text-[0.7rem] tracking-[0.12em] text-secondary/90 hover:text-secondary transition-colors uppercase"
             >
               Terms of Service
             </Link>

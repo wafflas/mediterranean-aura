@@ -80,7 +80,7 @@ function ReservationModal({ onClose }: { onClose: () => void }) {
       />
 
       <div className="relative z-10 w-full max-w-4xl h-[90vh] max-h-[700px] mx-4 bg-secondary border border-primary/20 flex flex-col animate-in fade-in zoom-in duration-500 ease-out">
-        <div className="flex items-center justify-between px-8 py-6 border-b border-primary/10">
+        <div className="flex items-center justify-between px-5 py-2 border-b border-primary/10">
           <h2
             id="reservation-modal-title"
             className="text-2xl font-canela font-light tracking-wide text-primary uppercase"

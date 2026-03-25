@@ -9,6 +9,7 @@ import type { Swiper as SwiperType } from "swiper";
 import { reviews } from "@/lib/data";
 import { ReviewStar, ReviewArrow, QuoteOpen } from "@/lib/icons";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { ChevronRight } from "lucide-react";
 
 export function Reviews() {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -48,7 +49,7 @@ export function Reviews() {
                     <ReviewStar key={i} size={32} />
                   ))}
                 </div>
-                <p className="font-apercu text-[0.7rem] tracking-[0.1em] text-primary/55 mb-8">
+                <p className="font-apercu text-[0.7rem] tracking-[0.1em] text-primary/85 mb-8">
                   {review.name}
                 </p>
                 <blockquote className="font-canela font-light text-primary text-[1.45rem] leading-[1.45] text-center mb-10 min-h-[160px] px-4">
@@ -85,10 +86,10 @@ export function Reviews() {
       <div className="mt-12 pt-6  flex items-center justify-center">
         <a
           href="#contact"
-          className="font-apercu text-[0.6rem] tracking-[0.22em] uppercase text-primary/60 hover:text-primary transition-colors duration-300 flex items-center gap-2"
+          className="font-apercu underline text-[0.8rem] tracking-[0.22em] uppercase text-primary/85 hover:text-primary transition-colors duration-300 flex items-center gap-2"
         >
           LET US KNOW WHAT YOU THINK
-          <span aria-hidden="true">›</span>
+          <ChevronRight size={18} />
         </a>
       </div>
     </section>

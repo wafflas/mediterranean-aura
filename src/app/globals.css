@@ -26,13 +26,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #DFD8CF;
+  background: #dfd8cf;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #21343E;
+  background-color: #21343e;
   border-radius: 20px;
-  border: 3px solid #DFD8CF;
+  border: 3px solid #dfd8cf;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -41,5 +41,56 @@ body {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #21343E #DFD8CF;
+  scrollbar-color: #21343e #dfd8cf;
+}
+
+.btn-hover-dark {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.btn-hover-dark::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  translate: -50% -50%;
+  background: rgba(33, 52, 62, 0.15);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.btn-hover-dark:hover::before {
+  transform: scale(1);
+}
+
+/* Center-spread hover effect — light overlay for dark buttons */
+.btn-hover-light {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.btn-hover-light::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  translate: -50% -50%;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.btn-hover-light:hover::before {
+  transform: scale(1);
 }

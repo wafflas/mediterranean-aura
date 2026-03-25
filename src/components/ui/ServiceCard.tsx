@@ -38,13 +38,13 @@ export function ServiceCard({
           <h3 className="font-canela font-light text-primary text-start text-[1.65rem] leading-[1.1]">
             {title}
           </h3>
-          <span className="font-apercu text-[0.6rem] tracking-[0.18em] uppercase text-primary/70 whitespace-nowrap shrink-0">
+          <span className="font-apercu text-[0.6rem] tracking-[0.18em] uppercase text-primary/90 whitespace-nowrap shrink-0">
             FROM €{price}
           </span>
         </div>
 
         {durations && durations.length > 0 && (
-          <p className="font-apercu text-[0.65rem] tracking-[0.2em] uppercase text-primary/60 mb-5">
+          <p className="font-apercu text-[0.65rem] tracking-[0.2em] uppercase text-primary/85 mb-5">
             {durations.join(" | ")}
           </p>
         )}
@@ -56,7 +56,7 @@ export function ServiceCard({
         <div className="flex justify-center mt-auto">
           <button
             onClick={openReservation}
-            className="rounded-sm bg-primary text-secondary font-apercu text-[0.65rem] tracking-[0.2em] uppercase py-4 px-12 hover:bg-primary/90 transition-colors duration-300 flex items-center gap-3"
+            className="btn-hover-light rounded-sm bg-primary text-secondary font-apercu text-[0.65rem] tracking-[0.2em] uppercase py-4 px-12 transition-colors duration-300 flex items-center gap-3"
           >
             RESERVE RETREAT
             <ArrowRight className="size-4" strokeWidth={1.5} />

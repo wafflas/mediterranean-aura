@@ -2,22 +2,23 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
 
-export function CookieConsent() {
-  const [showConsent, setShowConsent] = useState(false);
-  const [mounted, setMounted] = useState(false);
+interface CookieConsentProps {
+  hasConsent: boolean;
+}
+
+export function CookieConsent({ hasConsent }: CookieConsentProps) {
+  const [showConsent, setShowConsent] = useState(!hasConsent);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
-    setMounted(true);
-    const consent = localStorage.getItem("mediterranean-aura-cookie-consent");
-    if (!consent) {
-      setShowConsent(true);
-    }
-  }, []);
+    setShowConsent(!hasConsent);
+  }, [hasConsent]);
 
   useEffect(() => {
     if (showConsent && popupRef.current) {
@@ -26,7 +27,7 @@ export function CookieConsent() {
       gsap.fromTo(
         popupRef.current,
         { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", delay }
+        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", delay },
       );
     }
   }, [showConsent, pathname]);
@@ -45,14 +46,26 @@ export function CookieConsent() {
     });
   };
 
-  const acceptCookies = () => {
+  const acceptCookies = async () => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/cookie-consent", {
+        method: "POST",
+      });
+      if (response.ok) await router.refresh();
+    } catch (error) {
+      console.error("Failed to persist cookie consent", error);
+    }
+
     animateOut(() => {
-      localStorage.setItem("mediterranean-aura-cookie-consent", "true");
       setShowConsent(false);
+      setIsSubmitting(false);
     });
   };
 
-  if (!mounted || !showConsent) return null;
+  if (!showConsent) return null;
 
   return (
     <div className="fixed bottom-4 left-0 w-full flex justify-center px-4 md:bottom-8 md:px-0 z-[5000] pointer-events-none">
@@ -74,6 +87,7 @@ export function CookieConsent() {
           </Link>
           <button
             onClick={acceptCookies}
+            disabled={isSubmitting}
             className="rounded-sm bg-primary text-secondary font-apercu text-[10px] md:text-[11px] tracking-widest uppercase px-6 py-3 hover:bg-primary/90 transition-colors duration-300"
           >
             Accept

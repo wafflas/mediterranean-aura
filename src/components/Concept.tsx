@@ -2,9 +2,12 @@ import { SectionTitle } from "./ui/SectionTitle";
 
 export function Concept() {
   return (
-    <section className="relative bg-secondary w-full overflow-hidden py-24 px-8 flex items-center justify-center min-h-[680px]">
+    <section
+      id="concept"
+      className="relative bg-secondary w-full overflow-hidden py-24 px-8 flex items-center justify-center min-h-[680px] scroll-mt-24 md:scroll-mt-28"
+    >
       <svg
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full will-change-transform pointer-events-none"
         viewBox="0 0 748 529"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

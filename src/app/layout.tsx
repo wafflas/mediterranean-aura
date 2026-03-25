@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { cookies } from "next/headers";
 import "./globals.css";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import { ReservationProvider } from "@/components/ReservationProvider";
 import LoadingIntro from "@/components/ui/LoadingIntro";
 import Navbar from "@/components/Navbar";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 const apercuMonoPro = localFont({
   src: [
@@ -74,23 +76,29 @@ export const metadata: Metadata = {
   description: "Mediterranean Aura Project",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const hasCookieConsent = Boolean(
+    cookieStore.get("mediterranean-aura-cookie-consent")?.value,
+  );
+
   return (
     <html lang="en">
       <body
         className={`${apercuMonoPro.variable} ${canela.variable} antialiased text-primary bg-secondary`}
       >
+        <GoogleAnalytics hasConsent={hasCookieConsent} />
         <ReservationProvider>
           <Navbar />
           <SmoothScrollProvider>
             <LoadingIntro />
             {children}
           </SmoothScrollProvider>
-          <CookieConsent />
+          <CookieConsent hasConsent={hasCookieConsent} />
         </ReservationProvider>
       </body>
     </html>

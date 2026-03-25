@@ -1,13 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import ScrollDownIndicator from "./ui/ScrollDownIndicator";
+import { useReservation } from "./ReservationProvider";
 
 export default function LandingPage() {
+  const { openReservation } = useReservation();
   return (
     <>
       <section className="relative h-screen min-h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/landingPageImage.png"
+            src="/images/landingPageImage.webp"
             alt="Relaxing luxury in-villa massage in Rhodes with a view of the sea"
             fill
             priority
@@ -41,7 +45,10 @@ export default function LandingPage() {
             </span>
           </h1>
 
-          <button className="rounded-sm bg-secondary text-primary px-8 py-4 font-apercu text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-white transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5">
+          <button
+            onClick={openReservation}
+            className="btn-hover-dark rounded-sm bg-secondary text-primary px-8 py-4 font-apercu text-xs sm:text-sm uppercase tracking-[0.15em] transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5"
+          >
             Book your session now
           </button>
         </div>
