@@ -5,20 +5,17 @@ import { usePathname } from "next/navigation";
 
 export default function LoadingIntro() {
   const comp = useRef<HTMLDivElement>(null);
-  const [isDone, setIsDone] = useState(false);
-const pathname = usePathname();
+  const pathname = usePathname();
+  const [isDone, setIsDone] = useState(() => pathname !== "/");
 
-useEffect(() => {
-  if (pathname !== "/") {
-    setIsDone(true);
-  }
-}, [pathname]);
-
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (pathname !== "/") {
+      setIsDone(true);
+    }
+  }, [pathname]);
 
   useLayoutEffect(() => {
-    if (!mounted) return;
+    if (pathname !== "/") return;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -62,9 +59,9 @@ useEffect(() => {
       document.body.style.overflow = "";
       ctx.revert();
     };
-  }, [mounted]);
+  }, [pathname]);
 
-  if (!mounted || isDone) return null;
+  if (isDone) return null;
 
   const phrase = "Meditarranean Aura";
 
