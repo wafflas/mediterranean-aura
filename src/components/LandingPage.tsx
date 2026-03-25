@@ -26,19 +26,19 @@ export default function LandingPage() {
           <h1 className="font-canela font-light text-white text-[40px] md:text-[75px] leading-[1.15] mb-12 drop-shadow-lg flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-2 md:gap-x-6 md:gap-y-2 tracking-wide w-full max-w-[90vw] md:max-w-6xl">
             <span className="flex items-baseline justify-center gap-3 md:gap-5">
               <span>RELAX</span>
-              <span className="text-[25px] md:text-[45px] italic opacity-90">
+              <span className="text-[25px] md:text-[45px] opacity-90">
                 IN
               </span>
               <span>THE</span>
             </span>
             <span className="flex items-baseline justify-center gap-3 md:gap-5">
               <span>COMFORT</span>
-              <span className="text-[25px] md:text-[45px] italic opacity-90">
+              <span className="text-[25px] md:text-[45px] opacity-90">
                 OF
               </span>
             </span>
             <span className="flex items-baseline justify-center gap-3 md:gap-5">
-              <span className="text-[25px] md:text-[45px] italic opacity-90">
+              <span className="text-[25px] md:text-[45px] opacity-90">
                 YOUR
               </span>
               <span>VILLA</span>
