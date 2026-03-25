@@ -15,10 +15,10 @@ export function Reviews() {
 
   return (
     <section className="relative bg-secondary w-full overflow-hidden px-8 py-16 flex flex-col">
-      <SectionTitle title="GUEST STORIES" className="mb-2" />
-      <h1 className="font-canela font-regular text-primary text-[4rem] leading-[1.1] mb-12 drop-shadow-lg flex flex-col items-center gap-1 md:gap-4 tracking-wide w-full max-w-[90vw]">
+      <SectionTitle title="GUEST STORIES" className="mb-2" as="p" />
+      <h2 className="font-canela font-regular text-primary text-[4rem] leading-[1.1] mb-12 drop-shadow-lg flex flex-col items-center gap-1 md:gap-4 tracking-wide w-full max-w-[90vw]">
         Reviews
-      </h1>
+      </h2>
 
       <div className="relative w-full max-w-4xl mx-auto">
         <div className="absolute top-0 right-0 md:right-12 z-0 opacity-15">

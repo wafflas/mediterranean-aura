@@ -144,7 +144,7 @@ export default function Navbar() {
             </span>
             <span
               ref={closeLabelRef}
-              className="font-apercu text-[0.6rem] tracking-[0.22em] uppercase absolute top-0 left-0"
+              className="font-apercu text-[0.6rem] tracking-[0.22em] uppercase absolute top-0 left-0 opacity-0"
             >
               CLOSE
             </span>
@@ -153,6 +153,7 @@ export default function Navbar() {
 
         <Link
           href="/"
+          aria-label="Home"
           className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center group transition-all duration-300"
         >
           <Logo logoColorFill={logoColorFill} />
@@ -175,7 +176,7 @@ export default function Navbar() {
 
       <div
         ref={overlayRef}
-        className="fixed inset-0 z-[55] bg-secondary flex flex-col px-8 md:px-14 pt-28 pb-12 overflow-y-auto"
+        className="fixed inset-0 z-[55] bg-secondary flex flex-col px-8 md:px-14 pt-28 pb-12 overflow-y-auto opacity-0 -translate-y-full"
         aria-hidden={!isOpen}
       >
         <ul ref={linksRef} className="flex flex-col gap-2 flex-1">
