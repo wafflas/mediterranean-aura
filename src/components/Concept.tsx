@@ -1,6 +1,42 @@
+"use client";
+
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionTitle } from "./ui/SectionTitle";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export function Concept() {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    if (!contentRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const lines = gsap.utils.toArray<HTMLElement>(".concept-line");
+
+      gsap.fromTo(
+        lines,
+        { autoAlpha: 0, y: 50 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: contentRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        },
+      );
+    }, contentRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
       id="concept"
@@ -55,13 +91,37 @@ export function Concept() {
           fill="#21343E"
         />
       </svg>
-      <div className="relative z-10 flex flex-col items-center text-center max-w-[340px]">
-        <SectionTitle title="CONCEPT" className="mb-10" />
-        <p className="font-canela font-light text-primary text-[1.3rem] leading-[1.6]">
-          Experience the pinnacle of relaxation without ever leaving your
-          retreat. Our elite, in-villa massage services travel to you anywhere
-          in Rhodes, offering a seamless opportunity to savor profound
-          tranquility in the unmatched comfort and privacy of your own space.
+      <div
+        ref={contentRef}
+        className="relative z-10 flex flex-col items-center text-center max-w-[340px] md:max-w-[650px]"
+      >
+        <SectionTitle
+          title="CONCEPT"
+          className="mb-10"
+          as="h3"
+          triggerRef={contentRef}
+        />
+        <p className="font-canela font-light text-primary text-[1.5rem] md:text-[2.5rem] leading-[1.6]">
+          <span className="overflow-hidden block">
+            <span className="concept-line block">
+              Experience the pinnacle of relaxation without ever leaving your
+            </span>
+          </span>
+          <span className="overflow-hidden block">
+            <span className="concept-line block">
+              retreat. Our elite, in-villa massage services travel to you anywhere
+            </span>
+          </span>
+          <span className="overflow-hidden block">
+            <span className="concept-line block">
+              in Rhodes, offering a seamless opportunity to savor profound
+            </span>
+          </span>
+          <span className="overflow-hidden block">
+            <span className="concept-line block">
+              tranquility in the unmatched comfort and privacy of your own space.
+            </span>
+          </span>
         </p>
       </div>
     </section>

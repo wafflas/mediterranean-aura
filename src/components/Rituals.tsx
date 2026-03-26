@@ -1,12 +1,57 @@
 "use client";
 
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ServiceCard } from "./ui/ServiceCard";
 import { services } from "@/lib/data";
 import { SectionTitle } from "./ui/SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Rituals() {
+  const mobileCardsRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const cardsContainer = mobileCardsRef.current;
+    if (!cardsContainer) return;
+
+    const mm = gsap.matchMedia();
+    const ctx = gsap.context(() => {
+      mm.add("(max-width: 767px)", () => {
+        const cards = gsap.utils.toArray<HTMLDivElement>("[data-ritual-card]");
+
+        cards.forEach((card) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0, y: 32, scale: 0.98 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.7,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 82%",
+                end: "top 60%",
+                toggleActions: "play none none none",
+                once: true,
+              },
+            },
+          );
+        });
+      });
+    }, cardsContainer);
+
+    return () => {
+      mm.revert();
+      ctx.revert();
+    };
+  }, []);
+
   return (
     <div
       id="rituals"
@@ -15,16 +60,17 @@ export default function Rituals() {
       <SectionTitle title="RITUALS" className="mb-10" />
       
       {/* Mobile Vertical Stack */}
-      <div className="flex flex-col space-y-6 md:hidden">
+      <div ref={mobileCardsRef} className="flex flex-col space-y-6 md:hidden">
         {services.map((service) => (
-          <ServiceCard
-            key={service.title}
-            title={service.title}
-            description={service.description}
-            price={service.price}
-            image={service.image}
-            durations={service.durations}
-          />
+          <div key={service.title} data-ritual-card>
+            <ServiceCard
+              title={service.title}
+              description={service.description}
+              price={service.price}
+              image={service.image}
+              durations={service.durations}
+            />
+          </div>
         ))}
       </div>
 

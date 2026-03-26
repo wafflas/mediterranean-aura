@@ -21,6 +21,7 @@ export default function LoadingIntro() {
       const tl = gsap.timeline({
         onComplete: () => {
           document.body.style.overflow = "";
+          window.dispatchEvent(new CustomEvent("loading-intro:complete"));
           setIsDone(true);
         },
       });
@@ -68,12 +69,13 @@ export default function LoadingIntro() {
   return (
     <div
       ref={comp}
+      data-loading-intro="active"
       className="flex justify-center items-center w-screen h-screen fixed top-0 left-0 bg-secondary z-[9999]"
     >
       <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 px-6">
         {phrase.split(" ").map((word, index) => (
           <span key={index} className="overflow-hidden inline-flex">
-            <span className="wordIntro font-canela font-light text-primary text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] opacity-0">
+            <span className="wordIntro font-canela font-light text-primary text-3xl md:text-5xl lg:text-6xl tracking-[0.15em] opacity-0 select-none">
               {word}
             </span>
           </span>

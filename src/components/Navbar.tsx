@@ -18,6 +18,7 @@ export default function Navbar() {
   const { openReservation } = useReservation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuColorActive, setIsMenuColorActive] = useState(false);
   const pathname = usePathname();
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
@@ -86,6 +87,16 @@ export default function Navbar() {
       { opacity: 1, y: 0, duration: 0.4, stagger: 0.07, ease: "power2.out" },
       "<0.1",
     );
+
+    tl.eventCallback("onComplete", () => {
+      setIsOpen(true);
+      setIsMenuColorActive(true);
+    });
+    tl.eventCallback("onReverseComplete", () => {
+      setIsOpen(false);
+      setIsMenuColorActive(false);
+    });
+
     overlayTl.current = tl;
 
     return () => {
@@ -95,30 +106,34 @@ export default function Navbar() {
 
   const toggleMenu = () => {
     if (!overlayTl.current) return;
+    if (overlayTl.current.isActive()) return;
+
     if (isOpen) {
       overlayTl.current.reverse();
     } else {
+      setIsMenuColorActive(true);
+      setIsOpen(true);
       overlayTl.current.play();
     }
-    setIsOpen((prev) => !prev);
   };
 
   const isHome = pathname === "/";
 
-  const textColor =
-    isOpen || !isHome || isScrolled ? "text-primary" : "text-white";
+  const shouldUsePrimaryColor = isMenuColorActive || !isHome || isScrolled;
+
+  const textColor = shouldUsePrimaryColor ? "text-primary" : "text-white";
 
   const navBg =
-    !isOpen && (!isHome || isScrolled)
+    !isMenuColorActive && (!isHome || isScrolled)
       ? "bg-secondary shadow-sm"
       : "bg-transparent";
 
-  const logoColorFill = isOpen || !isHome || isScrolled ? "#21343E" : "white";
+  const logoColorFill = shouldUsePrimaryColor ? "#21343E" : "white";
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ease-in-out px-6 md:px-10 py-5 flex items-center justify-between ${navBg} ${textColor}`}
+        className={`fixed top-0 left-0 right-0 z-[4500] transition-all duration-500 ease-in-out px-6 md:px-10 py-5 flex items-center justify-between ${navBg} ${textColor}`}
       >
         <button
           onClick={toggleMenu}
@@ -155,7 +170,7 @@ export default function Navbar() {
         <Link
           href="/"
           aria-label="Home"
-          className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center group transition-all duration-300"
+          className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center group transition-all duration-500 ease-in-out"
         >
           <Logo logoColorFill={logoColorFill} />
         </Link>
@@ -165,8 +180,8 @@ export default function Navbar() {
             if (isOpen) toggleMenu();
             openReservation();
           }}
-          className={`rounded-sm font-apercu text-[0.6rem] tracking-[0.18em] uppercase border px-2 py-1 transition-all duration-300 ${
-            isOpen || !isHome || isScrolled
+          className={`rounded-sm font-apercu text-[0.6rem] tracking-[0.18em] uppercase border px-2 py-1 transition-all duration-500 ease-in-out ${
+            shouldUsePrimaryColor
               ? "btn-hover-dark border-primary/50"
               : "btn-hover-light border-white/70"
           }`}
@@ -177,7 +192,7 @@ export default function Navbar() {
 
       <div
         ref={overlayRef}
-        className="fixed inset-0 z-[55] bg-secondary flex flex-col px-8 md:px-14 pt-28 pb-12 overflow-y-auto opacity-0"
+        className="fixed inset-0 z-[4000] bg-secondary flex flex-col px-8 md:px-14 pt-28 pb-12 overflow-y-auto opacity-0"
         aria-hidden={!isOpen}
       >
         <ul ref={linksRef} className="flex flex-col gap-2 flex-1">

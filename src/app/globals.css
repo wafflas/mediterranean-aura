@@ -44,6 +44,17 @@ body {
   scrollbar-color: #21343e #dfd8cf;
 }
 
+::selection {
+  background-color: #21343e;
+  color: #ffffff;
+}
+
+::-moz-selection {  
+  background-color: #21343e;
+  color: #ffffff;
+}
+
+
 .btn-hover-dark {
   position: relative;
   overflow: hidden;

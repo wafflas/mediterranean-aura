@@ -8,6 +8,7 @@ import { ReservationProvider } from "@/components/ReservationProvider";
 import LoadingIntro from "@/components/ui/LoadingIntro";
 import Navbar from "@/components/Navbar";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { WhatsAppFab } from "@/components/ui/WhatsAppFab";
 
 const apercuMonoPro = localFont({
   src: [
@@ -98,6 +99,7 @@ export default async function RootLayout({
             <LoadingIntro />
             {children}
           </SmoothScrollProvider>
+          <WhatsAppFab />
           <CookieConsent hasConsent={hasCookieConsent} />
         </ReservationProvider>
       </body>

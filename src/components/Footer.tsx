@@ -21,7 +21,7 @@ export function Footer() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[#1E3340]" />
+        <div className="absolute inset-0 " />
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center text-secondary px-8 py-16 gap-10 md:gap-20 md:px-20 md:py-32 w-full max-w-screen-2xl mx-auto">
