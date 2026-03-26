@@ -101,7 +101,7 @@ export function Concept() {
           as="h3"
           triggerRef={contentRef}
         />
-        <p className="font-canela font-light text-primary text-[1.5rem] md:text-[2.5rem] leading-[1.6]">
+        <p className="font-canela font-light text-primary text-[1.42rem] md:text-[2.5rem] leading-[1.6]">
           <span className="overflow-hidden block">
             <span className="concept-line block">
               Experience the pinnacle of relaxation without ever leaving your
