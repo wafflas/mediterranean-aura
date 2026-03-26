@@ -52,8 +52,8 @@ export default function LandingPage() {
             Book your session now
           </button>
         </div>
-
         <ScrollDownIndicator />
+
       </section>
     </>
   );

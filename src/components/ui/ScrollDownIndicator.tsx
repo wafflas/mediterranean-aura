@@ -26,7 +26,7 @@ export default function ScrollDownIndicator() {
   }, []);
 
   return (
-    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 group">
+    <div className="absolute bottom-[140px] md:bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 group">
       <div className="relative h-8 w-[1px]">
         <div className="absolute inset-0 bg-white/20" />
         <div ref={fillRef} className="absolute inset-0 bg-white/80" />
