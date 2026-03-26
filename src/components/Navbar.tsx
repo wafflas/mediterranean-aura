@@ -180,10 +180,10 @@ export default function Navbar() {
             if (isOpen) toggleMenu();
             openReservation();
           }}
-          className={`rounded-sm font-apercu text-[0.6rem] tracking-[0.18em] uppercase border px-2 py-1 transition-all duration-500 ease-in-out ${
+          className={`rounded-sm font-apercu text-[0.6rem] tracking-[0.18em] uppercase border px-2 py-1 transition-colors duration-500 ease-in-out ${
             shouldUsePrimaryColor
-              ? "btn-hover-dark border-primary/50"
-              : "btn-hover-light border-white/70"
+              ? "btn-hover-dark text-primary border-primary/50"
+              : "btn-hover-light text-white border-white/70"
           }`}
         >
           RESERVE

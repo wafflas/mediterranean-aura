@@ -68,7 +68,7 @@ function ReservationModal({ onClose }: { onClose: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center"
+      className="fixed inset-0 z-[5000] flex items-center justify-center"
       role="dialog"
       aria-modal="true"
       aria-labelledby="reservation-modal-title"
@@ -79,7 +79,7 @@ function ReservationModal({ onClose }: { onClose: () => void }) {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 w-full max-w-4xl h-[80vh] max-h-[700px] mx-4 bg-secondary border border-primary/20 flex flex-col animate-in fade-in zoom-in duration-500 ease-out">
+      <div className="relative z-[5001] w-full max-w-4xl h-[80vh] max-h-[700px] mx-4 bg-secondary border border-primary/20 flex flex-col animate-in fade-in zoom-in duration-500 ease-out">
         <div className="flex items-center justify-between px-5 py-2 border-b border-primary/10">
           <h2
             id="reservation-modal-title"
