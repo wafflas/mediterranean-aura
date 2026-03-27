@@ -19,7 +19,7 @@ const ReservationContext = createContext<ReservationContextType | undefined>(
   undefined,
 );
 
-const RESERVATION_URL = "https://mediterraneanaurarhodes.setmore.com";
+const RESERVATION_URL = "https://mediterraneanaurarhodes.setmore.com/book";
 
 export function ReservationProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
