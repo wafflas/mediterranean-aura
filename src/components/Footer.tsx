@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { IconInstagram, IconWhatsapp, IconFacebook } from "@/lib/icons";
+import { IconInstagram, IconWhatsapp } from "@/lib/icons";
 import Logo from "./ui/Logo";
 import { useReservation } from "./ReservationProvider";
 
@@ -38,10 +38,10 @@ export function Footer() {
                 +30 694 745 9658
               </a>
               <a
-                href="mailto:info@mediterraneanaura.com"
+                href="mailto:mediterraneanaurarhodes@gmail.com"
                 className="font-apercu text-[0.82rem] md:text-[0.95rem] tracking-[0.06em] text-secondary/80 hover:opacity-100 transition-opacity"
               >
-                info@mediterraneanaura.com
+                mediterraneanaurarhodes@gmail.com
               </a>
             </div>
           </div>
@@ -84,17 +84,6 @@ export function Footer() {
               >
                 <div className="scale-100 md:scale-125">
                   <IconWhatsapp />
-                </div>
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-secondary/50 flex items-center justify-center text-secondary hover:border-secondary hover:bg-secondary/10 transition-all duration-300"
-              >
-                <div className="scale-100 md:scale-125">
-                  <IconFacebook />
                 </div>
               </a>
             </div>

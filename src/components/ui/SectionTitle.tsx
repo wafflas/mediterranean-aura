@@ -53,7 +53,7 @@ export function SectionTitle({
     <div className={`flex flex-col items-center text-center  ${className}`}>
       <Component
         ref={titleRef}
-        className={`font-apercu text-[0.9rem] tracking-[0.24em] uppercase text-primary mb-4 max-w-[50vw] mx-auto ${titleClassName}`}
+        className={`font-apercu text-[0.9rem] tracking-[0.24em] uppercase text-primary mb-4 max-w-[51vw] mx-auto ${titleClassName}`}
       >
         {magneticPull
           ? title.split("").map((char, index) => (

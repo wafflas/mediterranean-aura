@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
           <p className="mb-4">You may request access to, correction, or deletion of your personal information at any time. If you wish to exercise these rights, please contact us using the information provided below.</p>
 
           <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">7. Contact Us</h2>
-          <p className="mb-4">For privacy-related inquiries, please reach out via email at info@mediterraneanaura.com or by phone at +30 694 745 9658.</p>
+          <p className="mb-4">For privacy-related inquiries, please reach out via email at mediterraneanaurarhodes@gmail.com or by phone at +30 694 745 9658.</p>
         </div>
       </div>
       <Footer />

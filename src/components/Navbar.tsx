@@ -232,22 +232,29 @@ export default function Navbar() {
               +30 694 745 9658
             </a>
             <a
-              href="mailto:info@mediterraneanaura.com"
+              href="mailto:mediterraneanaurarhodes@gmail.com"
               className="font-apercu text-[0.7rem] tracking-[0.12em] uppercase text-primary/60 hover:text-primary transition-colors"
             >
-              info@mediterraneanaura.com
+              mediterraneanaurarhodes@gmail.com
             </a>
           </div>
           <div className="flex items-center gap-6">
-            {["Instagram", "WhatsApp", "Facebook"].map((social) => (
-              <a
-                key={social}
-                href="#"
-                className="font-apercu text-[0.6rem] tracking-[0.18em] uppercase text-primary/50 hover:text-primary transition-colors"
-              >
-                {social}
-              </a>
-            ))}
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-apercu text-[0.6rem] tracking-[0.18em] uppercase text-primary/50 hover:text-primary transition-colors"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://wa.me/306947459658"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-apercu text-[0.6rem] tracking-[0.18em] uppercase text-primary/50 hover:text-primary transition-colors"
+            >
+              WhatsApp
+            </a>
           </div>
         </div>
       </div>

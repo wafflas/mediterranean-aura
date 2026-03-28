@@ -30,7 +30,7 @@ export default function TermsOfService() {
           <p className="mb-4">Our website may use cookies and analytics technologies to improve user experience and understand website performance. Analytics tools are activated only after consent is provided through our cookie banner. Please review our Privacy Policy for details about data processing and your choices.</p>
 
           <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">6. Contact</h2>
-          <p className="mb-4">If you have any questions about these Terms, please contact us at info@mediterraneanaura.com or call us at +30 694 745 9658.</p>
+          <p className="mb-4">If you have any questions about these Terms, please contact us at mediterraneanaurarhodes@gmail.com or call us at +30 694 745 9658.</p>
         </div>
       </div>
       <Footer />
