@@ -72,9 +72,15 @@ const canela = localFont({
   variable: "--font-canela",
 });
 
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.mediterraneanaura.gr"),
   title: "Mediterranean Aura",
   description: "Mediterranean Aura Project",
+  ...(googleSiteVerification
+    ? { verification: { google: googleSiteVerification } }
+    : {}),
 };
 
 export default async function RootLayout({
