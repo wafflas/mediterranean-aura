@@ -44,7 +44,7 @@ export function MapSection() {
     >
       <div className="mx-auto w-full max-w-[440px] lg:max-w-[980px]">
         <div className="w-full">
-          <h3 className="flex w-full items-center justify-start gap-1 font-canela font-light text-primary lg:gap-2">
+          <h2 className="flex w-full items-center justify-start gap-1 font-canela font-light text-primary lg:gap-2">
             <span className="inline-flex flex-col leading-[0.9]">
               <span className="text-[22px] tracking-[0.07em] lg:text-[30px]">
                 TRUSTED BY
@@ -56,7 +56,7 @@ export function MapSection() {
             <span className="text-[50px] leading-[0.78] lg:text-[80px]">
               <span ref={counterRef}>1</span>+
             </span>
-          </h3>
+          </h2>
         </div>
 
         <div className="mt-2 bg-secondary/40">

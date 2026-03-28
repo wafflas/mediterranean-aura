@@ -63,7 +63,6 @@ export function AuraDifference() {
         title="THE AURA DIFFERENCE"
         className="mb-10 md:mb-12 lg:mb-16"
         titleClassName="max-w-none whitespace-nowrap"
-        as="h3"
         magneticPull={false}
       />
 

@@ -8,7 +8,6 @@ import type { Swiper as SwiperType } from "swiper";
 
 import { reviews } from "@/lib/data";
 import { ReviewStar, ReviewArrow, QuoteOpen } from "@/lib/icons";
-import { SectionTitle } from "@/components/ui/SectionTitle";
 import { ChevronRight } from "lucide-react";
 
 export function Reviews() {
@@ -16,9 +15,13 @@ export function Reviews() {
 
   return (
     <section className="relative bg-secondary w-full overflow-hidden px-8 py-16 md:px-12 md:py-24 flex flex-col">
-      <SectionTitle title="GUEST STORIES" className="mb-2" as="p" />
-      <h2 className="font-canela font-regular text-primary text-[4rem] md:text-[5.8rem] leading-[1.1] mb-12 md:mb-16 drop-shadow-lg flex flex-col items-center gap-1 md:gap-4 tracking-wide w-full max-w-[30vw] mx-auto">
-        Reviews
+      <h2 className="mb-12 md:mb-16 flex w-full max-w-[30vw] flex-col items-center gap-1 text-center md:gap-4 mx-auto">
+        <span className="font-apercu text-[0.9rem] tracking-[0.24em] uppercase text-primary max-w-[51vw]">
+          GUEST STORIES
+        </span>
+        <span className="font-canela font-regular text-primary text-[4rem] md:text-[5.8rem] leading-[1.1] drop-shadow-lg tracking-wide">
+          Reviews
+        </span>
       </h2>
 
       <div className="relative w-full max-w-4xl md:max-w-6xl mx-auto">

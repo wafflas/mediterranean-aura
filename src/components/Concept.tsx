@@ -98,7 +98,6 @@ export function Concept() {
         <SectionTitle
           title="CONCEPT"
           className="mb-10"
-          as="h3"
           triggerRef={contentRef}
         />
         <p className="font-canela font-light text-primary text-[1.42rem] md:text-[2.5rem] leading-[1.6]">
