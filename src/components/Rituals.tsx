@@ -3,11 +3,10 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import { ServiceCard } from "./ui/ServiceCard";
 import { services } from "@/lib/data";
 import { SectionTitle } from "./ui/SectionTitle";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,7 +58,6 @@ export default function Rituals() {
     >
       <SectionTitle title="RITUALS" className="mb-10" />
       
-      {/* Mobile Vertical Stack */}
       <div ref={mobileCardsRef} className="flex flex-col space-y-6 md:hidden">
         {services.map((service) => (
           <div key={service.title} data-ritual-card>
@@ -69,37 +67,30 @@ export default function Rituals() {
               price={service.price}
               image={service.image}
               durations={service.durations}
+              promoLabel={service.promoLabel}
             />
           </div>
         ))}
       </div>
 
-      {/* Desktop Horizontal Swiper */}
-      <div className="hidden md:block w-full cursor-grab active:cursor-grabbing pb-8">
-        <Swiper
-          spaceBetween={32}
-          slidesPerView={1.2}
-          breakpoints={{
-            768: { slidesPerView: 2.2 },
-            1024: { slidesPerView: 2.8 },
-            1280: { slidesPerView: 3.5 },
-          }}
-          className="w-full !overflow-visible"
-        >
+      <div className="hidden md:block w-full">
+        <div className="mx-auto grid w-full max-w-5xl lg:max-w-6xl grid-cols-2 gap-x-8 gap-y-10 pb-8">
           {services.map((service) => (
-            <SwiperSlide key={service.title} className="!h-auto flex">
-              <div className="w-full h-full transition-transform duration-500 hover:-translate-y-2">
-                <ServiceCard
-                  title={service.title}
-                  description={service.description}
-                  price={service.price}
-                  image={service.image}
-                  durations={service.durations}
-                />
-              </div>
-            </SwiperSlide>
+            <div
+              key={service.title}
+              className="h-full min-h-0 transition-transform duration-500 hover:-translate-y-2"
+            >
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                price={service.price}
+                image={service.image}
+                durations={service.durations}
+                promoLabel={service.promoLabel}
+              />
+            </div>
           ))}
-        </Swiper>
+        </div>
       </div>
     </div>
   );

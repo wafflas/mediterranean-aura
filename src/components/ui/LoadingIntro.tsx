@@ -64,7 +64,7 @@ export default function LoadingIntro() {
 
   if (isDone) return null;
 
-  const phrase = "Meditarranean Aura";
+  const phrase = "Mediterranean Aura";
 
   return (
     <div
