@@ -134,7 +134,7 @@ export function AuraDifference() {
           <p className="font-canela font-light text-[22px] leading-[1] tracking-[0.08em] text-primary md:text-[26px] lg:text-[42px]">
             CERTIFIED
           </p>
-          <p className="font-apercu font-light text-[11px] leading-[1.1] tracking-[0.22em] text-primary/95 md:text-[12px] lg:text-[16px]">
+          <p className="font-canela font-light text-[11px] leading-[1.1] tracking-[0.22em] text-primary/95 md:text-[12px] lg:text-[16px]">
             PRACTITIONERS
           </p>
           <p className="mt-6 hidden max-w-[340px] text-center font-apercu text-[0.82rem] uppercase tracking-[0.11em] text-primary/75 lg:block">
@@ -152,7 +152,7 @@ export function AuraDifference() {
           <p className="font-canela font-light text-[22px] leading-[1] tracking-[0.08em] text-primary md:text-[26px] lg:text-[42px]">
             GREEK
           </p>
-          <p className="font-apercu font-light text-[9px] leading-[1.1] tracking-[0.10em] text-primary/95 md:text-[10px] lg:text-[13px]">
+          <p className="font-canela font-light text-[9px] leading-[1.1] tracking-[0.10em] text-primary/95 md:text-[10px] lg:text-[13px]">
             ORGANIC OILS
           </p>
           <p className="mt-6 hidden max-w-[340px] text-center font-apercu text-[0.82rem] uppercase tracking-[0.11em] text-primary/75 lg:block">

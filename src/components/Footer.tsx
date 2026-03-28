@@ -39,7 +39,7 @@ export function Footer() {
               </a>
               <a
                 href="mailto:mediterraneanaurarhodes@gmail.com"
-                className="font-apercu text-[0.82rem] md:text-[0.95rem] tracking-[0.06em] text-secondary/80 hover:opacity-100 transition-opacity"
+                className="font-apercu text-[0.82rem] md:text-[0.95rem] text-secondary/80 hover:opacity-100 transition-opacity"
               >
                 mediterraneanaurarhodes@gmail.com
               </a>
@@ -69,7 +69,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-secondary/50 flex items-center justify-center text-secondary hover:border-secondary hover:bg-secondary/10 transition-all duration-300"
+                className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border border-secondary/50 flex items-center justify-center text-secondary hover:border-secondary hover:bg-secondary/10 transition-all duration-300"
               >
                 <div className="scale-100 md:scale-125">
                   <IconInstagram />
@@ -80,10 +80,10 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-secondary/50 flex items-center justify-center text-secondary hover:border-secondary hover:bg-secondary/10 transition-all duration-300"
+                className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border border-secondary/50 flex items-center justify-center text-secondary hover:border-secondary hover:bg-secondary/10 transition-all duration-300"
               >
                 <div className="scale-100 md:scale-125">
-                  <IconWhatsapp />
+                  <IconWhatsapp size={20} className="origin-center scale-[0.86]" />
                 </div>
               </a>
             </div>
