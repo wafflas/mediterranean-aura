@@ -74,10 +74,23 @@ const canela = localFont({
 
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
+const siteDescription =
+  "Luxury in-villa wellness and massage in Rhodes, Greece. Mediterranean Aura brings couples rituals, aromatherapy, deep tissue, and relaxation treatments to your private villa.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mediterraneanaura.gr"),
-  title: "Mediterranean Aura",
-  description: "Mediterranean Aura Project",
+  title: {
+    default: "Mediterranean Aura",
+    template: "%s | Mediterranean Aura",
+  },
+  description: siteDescription,
+  openGraph: {
+    type: "website",
+    url: "https://www.mediterraneanaura.gr",
+    siteName: "Mediterranean Aura",
+    title: "Mediterranean Aura",
+    description: siteDescription,
+  },
   ...(googleSiteVerification
     ? { verification: { google: googleSiteVerification } }
     : {}),

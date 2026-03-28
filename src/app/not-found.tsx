@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description:
+    "This page does not exist. Return to Mediterranean Aura for in-villa wellness and massage services in Rhodes, Greece.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

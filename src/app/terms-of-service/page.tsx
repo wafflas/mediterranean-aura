@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
-export const metadata = {
-  title: "Terms of Service | Mediterranean Aura",
-  description: "Terms of Service for Mediterranean Aura luxury massage and wellness services.",
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description:
+    "Terms for Mediterranean Aura in Rhodes — booking & cancellation (deposits, 6-hour policy, same-day rules), health, liability, and website use.",
 };
 
 export default function TermsOfService() {
@@ -20,8 +22,22 @@ export default function TermsOfService() {
           <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">2. Services Information</h2>
           <p className="mb-4">Mediterranean Aura provides luxury wellness and massage experiences at your chosen villa or location. All services are subject to availability and prior booking. We reserve the right to modify or discontinue any service with appropriate notice.</p>
 
-          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">3. Booking and Cancellation</h2>
-          <p className="mb-4">Bookings must be confirmed in advance. Cancellations made less than 24 hours before the scheduled appointment may be subject to a cancellation fee. We reserve the right to refuse service in cases of inappropriate behavior, unsafe environments, or any violation of our safety policies.</p>
+          <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">
+            3. Booking &amp; Cancellation Policy
+          </h2>
+          <p className="mb-4">All bookings must be confirmed in advance.</p>
+          <p className="mb-4">A small deposit may be required to secure your appointment.</p>
+          <p className="mb-4">
+            Cancellations made less than 6 hours before the scheduled time are non-refundable.
+          </p>
+          <p className="mb-4">
+            For same-day bookings, changes or cancellations may not be possible.
+          </p>
+          <p className="mb-4">
+            We kindly ask guests to ensure a safe and respectful environment. We reserve the right
+            to refuse service in cases of inappropriate behavior, unsafe conditions, or any
+            violation of our safety policies.
+          </p>
 
           <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">4. Health and Liability</h2>
           <p className="mb-4">Clients are required to disclose any relevant medical conditions, allergies, or injuries prior to their session. Mediterranean Aura and its therapists are not liable for any adverse reactions or injuries arising from undisclosed health conditions.</p>

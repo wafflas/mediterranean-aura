@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
-export const metadata = {
-  title: "Privacy Policy | Mediterranean Aura",
-  description: "Privacy Policy for Mediterranean Aura luxury massage and wellness services.",
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "How Mediterranean Aura handles your data for in-villa massage and wellness on Rhodes — cookies, Google Analytics (with consent), contact details, and your rights.",
 };
 
 export default function PrivacyPolicy() {
