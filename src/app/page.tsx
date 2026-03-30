@@ -12,12 +12,27 @@ export const metadata: Metadata = {
     absolute: "Mediterranean Aura",
   },
   description:
-    "Private villa massage and wellness on Rhodes, Greece. Couples massage, aromatherapy, deep tissue, and relaxation rituals delivered to your villa by Mediterranean Aura.",
+    "Mediterranean Aura is a luxury in-villa massage service in Rhodes, Greece—offering couples rituals, aromatherapy, deep tissue, and relaxation treatments delivered to your private villa.",
   openGraph: {
     title: "Mediterranean Aura — In-villa massage & wellness, Rhodes",
     description:
-      "Private villa massage and wellness on Rhodes. Couples rituals, aromatherapy, deep tissue & relaxation — we come to you.",
+      "Luxury in-villa massage in Rhodes, Greece. Couples rituals, aromatherapy, deep tissue & relaxation—delivered to your private villa.",
     url: "https://www.mediterraneanaura.gr",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 247,
+        height: 211,
+        alt: "Mediterranean Aura",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Mediterranean Aura — In-villa massage & wellness, Rhodes",
+    description:
+      "Luxury in-villa massage in Rhodes, Greece. Couples rituals, aromatherapy, deep tissue & relaxation—delivered to your private villa.",
+    images: ["/opengraph-image.png"],
   },
 };
 
