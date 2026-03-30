@@ -75,7 +75,7 @@ const canela = localFont({
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
 const siteDescription =
-  "Luxury in-villa wellness and massage in Rhodes, Greece. Mediterranean Aura brings couples rituals, aromatherapy, deep tissue, and relaxation treatments to your private villa.";
+  "Mediterranean Aura is a luxury in-villa massage service in Rhodes, Greece—offering couples rituals, aromatherapy, deep tissue, and relaxation treatments delivered to your private villa.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mediterraneanaura.gr"),
@@ -84,12 +84,34 @@ export const metadata: Metadata = {
     template: "%s | Mediterranean Aura",
   },
   description: siteDescription,
+  icons: {
+    icon: [
+      { url: "/favicon_io/favicon.ico" },
+      { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/favicon_io/apple-touch-icon.png" }],
+  },
   openGraph: {
     type: "website",
     url: "https://www.mediterraneanaura.gr",
     siteName: "Mediterranean Aura",
     title: "Mediterranean Aura",
     description: siteDescription,
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 247,
+        height: 211,
+        alt: "Mediterranean Aura",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Mediterranean Aura",
+    description: siteDescription,
+    images: ["/opengraph-image.png"],
   },
   ...(googleSiteVerification
     ? { verification: { google: googleSiteVerification } }
@@ -108,6 +130,23 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon_io/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          href="/favicon_io/favicon-32x32.png"
+          type="image/png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          href="/favicon_io/favicon-16x16.png"
+          type="image/png"
+          sizes="16x16"
+        />
+        <link rel="apple-touch-icon" href="/favicon_io/apple-touch-icon.png" />
+        <link rel="manifest" href="/favicon_io/site.webmanifest" />
+      </head>
       <body
         className={`${apercuMonoPro.variable} ${canela.variable} antialiased text-primary bg-secondary`}
       >

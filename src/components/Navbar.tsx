@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
-import Logo from "./ui/Logo";
+import LogoSymbol from "./ui/LogoSymbol";
 import { useReservation } from "./ReservationProvider";
 import { usePathname } from "next/navigation";
 
@@ -172,7 +172,7 @@ export default function Navbar() {
           aria-label="Home"
           className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center group transition-all duration-500 ease-in-out"
         >
-          <Logo logoColorFill={logoColorFill} />
+          <LogoSymbol size={60} logoColorFill={logoColorFill} />
         </Link>
 
         <button

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IconInstagram, IconWhatsapp } from "@/lib/icons";
 import Logo from "./ui/Logo";
+import LogoSymbol from "./ui/LogoSymbol";
 import { useReservation } from "./ReservationProvider";
 
 export function Footer() {
@@ -47,11 +48,10 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col items-center gap-1 md:w-1/3 md:mt-0 mt-4">
-            <div className="font-canela font-light text-secondary text-[3.5rem] md:text-[4.5rem] leading-none tracking-wide text-center">
-              <div className="leading-[1]">LO</div>
-              <div className="leading-[1]">GO</div>
+          <div className="md:scale-125 md:mt-4 transition-transform duration-500">
+            <div className="flex items-center justify-center">
+            <LogoSymbol logoColorFill="#DFD8CF" size={140} />
             </div>
-            <div className="md:scale-125 md:mt-4 transition-transform duration-500">
               <Logo size={200} logoColorFill={"#DFD8CF"} />
             </div>
           </div>
