@@ -18,7 +18,7 @@ export function IvDocPromoSection() {
                 rel="noreferrer"
               >
                 <Image
-                  src="/images/ivdoclogo.png"
+                  src="/images/ivdoclogo.webp"
                   alt="iV Doc Rhodes IV therapy logo"
                   width={500}
                   height={250}
@@ -79,7 +79,7 @@ export function IvDocPromoSection() {
                 rel="noreferrer"
               >
               <Image
-                src="/images/dermancymedicalhouseLogo.png"
+                src="/images/dermancymedicalhouseLogo.webp"
                 alt="Dermancy Medical House logo"
                 width={900}
                 height={260}
