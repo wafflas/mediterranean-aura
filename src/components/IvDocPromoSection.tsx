@@ -30,7 +30,7 @@ export function IvDocPromoSection() {
           </div>
 
           <div className="md:w-2/3 md:space-y-4">
-            <p className="font-apercu text-[10px] uppercase tracking-[0.3em] text-primary/50">
+            <p className="font-apercu text-[10px] uppercase tracking-[0.2em] text-primary/50">
               Wellness partner in Rhodes
             </p>
             <h3 className="font-canela text-xl font-light text-primary md:text-2xl">
@@ -55,7 +55,7 @@ export function IvDocPromoSection() {
               </span>
             </div>
 
-            <div className="mt-5">
+            <div className="mt-5 flex justify-center md:justify-start">
               <Link
                 href="https://www.iv-rhodes.com"
                 target="_blank"
@@ -91,7 +91,7 @@ export function IvDocPromoSection() {
           </div>
 
           <div className="md:w-2/3 md:space-y-4">
-            <p className="font-apercu text-[10px] uppercase tracking-[0.3em] text-primary/50">
+            <p className="font-apercu text-[10px] uppercase tracking-[0.2em] text-primary/50">
               Premium aesthetic medicine partner
             </p>
             <h3 className="font-canela text-xl font-light text-primary md:text-2xl">
@@ -116,7 +116,7 @@ export function IvDocPromoSection() {
               </span>
             </div>
 
-            <div className="mt-5">
+            <div className="mt-5 flex justify-center md:justify-start">
               <Link
                 href="https://dermancy.com/"
                 target="_blank"
