@@ -72,14 +72,21 @@ export function IvDocPromoSection() {
         <div className="rounded-2xl border border-primary/15 bg-[#F1E7DC]/80 px-6 py-7 shadow-[0_18px_60px_rgba(0,0,0,0.22)] backdrop-blur-md md:flex md:items-center md:gap-10 md:px-10 md:py-8">
           <div className="mb-6 flex items-center justify-center md:mb-0 md:w-1/3">
             <div className="relative w-full max-w-[280px]">
+              <Link
+                aria-label="Visit Dermancy Medical House website"
+                href="https://dermancy.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
               <Image
                 src="/images/dermancymedicalhouseLogo.png"
                 alt="Dermancy Medical House logo"
                 width={900}
                 height={260}
                 className="h-auto w-full object-contain"
-                priority={false}
-              />
+                  priority={false}
+                />
+              </Link>
             </div>
           </div>
 
