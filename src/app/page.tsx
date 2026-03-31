@@ -3,9 +3,10 @@ import LandingPage from "@/components/LandingPage";
 import Rituals from "@/components/Rituals";
 import { Concept } from "@/components/Concept";
 import { AuraDifference } from "@/components/AuraDifference";
-import { Reviews } from "@/components/Reviews";
 import { MapSection } from "@/components/MapSection";
+import { Reviews } from "@/components/Reviews";
 import { Footer } from "@/components/Footer";
+import { IvDocPromoSection } from "@/components/IvDocPromoSection";
 
 export const metadata: Metadata = {
   title: {
@@ -44,6 +45,7 @@ export default function Home() {
       <Rituals />
       <AuraDifference />
       <MapSection />
+      <IvDocPromoSection />
       <Reviews />
       <Footer />
     </main>
