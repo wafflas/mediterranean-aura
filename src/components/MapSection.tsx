@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function MapSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   useLayoutEffect(() => {
     if (!sectionRef.current || !counterRef.current) return;
@@ -68,7 +69,24 @@ export function MapSection() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
+                onLoad={() => setIsMapLoaded(true)}
               />
+
+              <div
+                className={[
+                  "pointer-events-none absolute inset-0 grid place-items-center",
+                  "bg-secondary/40 backdrop-blur-[1px]",
+                  "transition-opacity duration-500",
+                  isMapLoaded ? "opacity-0" : "opacity-100",
+                ].join(" ")}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="h-6 w-6 animate-spin rounded-full border border-primary/25 border-t-primary/70" />
+                  <span className="font-canela font-light tracking-[0.06em] text-primary/80">
+                    Loading map…
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
