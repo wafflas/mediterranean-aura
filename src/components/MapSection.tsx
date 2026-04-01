@@ -1,7 +1,6 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -60,14 +59,17 @@ export function MapSection() {
         </div>
 
         <div className="mt-2 bg-secondary/40">
-          <div className="relative mx-auto h-[170px] w-full md:h-[240px] lg:h-[400px]">
-            <Image
-              src="/images/map.webp"
-              alt="Coverage map of Rhodes island"
-              fill
-              className="object-contain"
-              sizes="(min-width: 980px) 980px, 100vw"
-            />
+          <div className="relative mx-auto h-[220px] w-full md:h-[320px] lg:h-[520px]">
+            <div className="absolute inset-0 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/d/u/0/embed?mid=1IARbVmLUPXDt8aO1JH9ffCHciiG5qd8&ehbc=2E312F&noprof=1"
+                title="Rhodes coverage map"
+                className="absolute inset-0 -mt-[64px] h-[calc(100%+64px)] w-full border-0 md:-mt-[76px] md:h-[calc(100%+76px)]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
 
