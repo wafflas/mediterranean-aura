@@ -65,7 +65,7 @@ export function MapSection() {
               <iframe
                 src="https://www.google.com/maps/d/u/0/embed?mid=1IARbVmLUPXDt8aO1JH9ffCHciiG5qd8&ehbc=2E312F&noprof=1"
                 title="Rhodes coverage map"
-                className="absolute inset-0 -mt-[64px] h-[calc(100%+64px)] w-full border-0 md:-mt-[76px] md:h-[calc(100%+76px)]"
+                className="absolute inset-0 -mt-[64px] h-[calc(100%+70px)] w-full border-0 md:-mt-[76px] md:h-[calc(100%+80px)]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen

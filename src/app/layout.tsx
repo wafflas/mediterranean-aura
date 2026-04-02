@@ -100,7 +100,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/opengraph-image.jpg",
         width: 247,
         height: 211,
         alt: "Mediterranean Aura",
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Mediterranean Aura",
     description: siteDescription,
-    images: ["/opengraph-image.png"],
+    images: ["/opengraph-image.jpg"],
   },
   ...(googleSiteVerification
     ? { verification: { google: googleSiteVerification } }
