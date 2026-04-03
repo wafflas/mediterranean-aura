@@ -105,3 +105,26 @@ body {
 .btn-hover-light:hover::before {
   transform: scale(1);
 }
+
+/* Villas map: touch-friendly controls (Lighthouse / WCAG target size) */
+.villas-map .maplibregl-ctrl-group button {
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px;
+  min-height: 48px;
+  box-sizing: border-box;
+}
+
+.villas-map .maplibregl-popup-close-button {
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}

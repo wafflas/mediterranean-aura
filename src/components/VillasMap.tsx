@@ -102,6 +102,7 @@ export function VillasMap({ onReady }: VillasMapProps) {
           markerEl.className = "villas-map-pin";
           markerEl.setAttribute("aria-label", name);
           markerEl.innerHTML = getPinSvgMarkup();
+          applyPinTouchTargetStyles(markerEl);
 
           markerEl.addEventListener("click", () => {
             if (!map || !popup) return;
@@ -151,7 +152,7 @@ export function VillasMap({ onReady }: VillasMapProps) {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 h-full w-full [&_.maplibregl-ctrl-attrib]:bg-secondary/90 [&_.maplibregl-ctrl-attrib]:text-[10px] [&_.maplibregl-ctrl-attrib]:text-primary/80"
+      className="villas-map absolute inset-0 h-full w-full [&_.maplibregl-ctrl-attrib]:bg-secondary/90 [&_.maplibregl-ctrl-attrib]:text-[10px] [&_.maplibregl-ctrl-attrib]:text-primary/80"
       role="application"
       aria-label="Interactive map of villa locations in Rhodes"
     />
@@ -166,13 +167,35 @@ function escapeHtml(text: string): string {
     .replace(/"/g, "&quot;");
 }
 
+/** WCAG 2.5.5: min ~44×44px; we use 48×48 with visual pin inset for easier tapping. */
+const PIN_TOUCH_PX = 48;
+const PIN_SVG_PX = 40;
+
+function applyPinTouchTargetStyles(el: HTMLButtonElement) {
+  el.style.minWidth = `${PIN_TOUCH_PX}px`;
+  el.style.minHeight = `${PIN_TOUCH_PX}px`;
+  el.style.width = `${PIN_TOUCH_PX}px`;
+  el.style.height = `${PIN_TOUCH_PX}px`;
+  el.style.padding = "0";
+  el.style.margin = "0";
+  el.style.border = "none";
+  el.style.background = "transparent";
+  el.style.cursor = "pointer";
+  el.style.display = "flex";
+  el.style.alignItems = "flex-end";
+  el.style.justifyContent = "center";
+  el.style.boxSizing = "border-box";
+  el.style.touchAction = "manipulation";
+  el.style.setProperty("-webkit-tap-highlight-color", "transparent");
+}
+
 function getPinSvgMarkup(): string {
-  const size = 44;
+  const size = PIN_SVG_PX;
   const strokeWidth = 2;
   const r = 9;
 
   return `
-<svg width="${size}" height="${size}" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<svg width="${size}" height="${size}" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
   <path d="M24 46s14-13.5 14-26C38 12.3 31.7 6 24 6S10 12.3 10 20c0 12.5 14 26 14 26Z" fill="${MAP_PRIMARY}" stroke="${MAP_SECONDARY}" stroke-width="${strokeWidth}"/>
   <circle cx="24" cy="20" r="${r}" fill="${MAP_SECONDARY}"/>
 </svg>
