@@ -100,9 +100,9 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/opengraph-image.jpg",
+        url: "/opengraph-imageV2.jpg",
         width: 247,
-        height: 211,
+        height: 211,    
         alt: "Mediterranean Aura",
       },
     ],
