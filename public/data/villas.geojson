@@ -1,0 +1,85 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Villa Bianca" },
+      "geometry": { "type": "Point", "coordinates": [28.104897, 36.3138852] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Villa Iliousa princess" },
+      "geometry": { "type": "Point", "coordinates": [28.1039049, 36.3107396] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Villa Iliousa Grand" },
+      "geometry": { "type": "Point", "coordinates": [28.1038962, 36.3107615] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "ZenClub Luxury Villas" },
+      "geometry": { "type": "Point", "coordinates": [28.1522284, 36.2465007] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Nouvelle15 Cozy House" },
+      "geometry": { "type": "Point", "coordinates": [28.2113684, 36.3860532] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Vista Delle Montagne" },
+      "geometry": { "type": "Point", "coordinates": [28.1558066, 36.4061563] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Elena's Country Home" },
+      "geometry": { "type": "Point", "coordinates": [28.158304, 36.338162] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Sky Hills" },
+      "geometry": { "type": "Point", "coordinates": [28.1043991, 36.3131598] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Eldorado Luxury Villa" },
+      "geometry": { "type": "Point", "coordinates": [28.1548666, 36.2929056] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Platanos House" },
+      "geometry": { "type": "Point", "coordinates": [28.1985567, 36.3359436] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Apagkio Filoxenia" },
+      "geometry": { "type": "Point", "coordinates": [28.1392959, 36.2064275] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Barbara's Apartments" },
+      "geometry": { "type": "Point", "coordinates": [28.1419142, 36.2111096] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Villa Tranquila Rhodes" },
+      "geometry": { "type": "Point", "coordinates": [28.1083419, 36.3166611] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Villa Tranquility" },
+      "geometry": { "type": "Point", "coordinates": [28.1081199, 36.3166085] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Villa Chrysa Rhodes" },
+      "geometry": { "type": "Point", "coordinates": [28.1490535, 36.297494] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Themis Private Villa Rhodes" },
+      "geometry": { "type": "Point", "coordinates": [28.1679226, 36.4077986] }
+    }
+  ]
+}

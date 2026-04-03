@@ -4,6 +4,8 @@ import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { VillasMap } from "@/components/VillasMap";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export function MapSection() {
@@ -61,16 +63,8 @@ export function MapSection() {
 
         <div className="mt-2 bg-secondary/40">
           <div className="relative mx-auto h-[220px] w-full md:h-[320px] lg:h-[520px]">
-            <div className="absolute inset-0 overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/d/u/0/embed?mid=1IARbVmLUPXDt8aO1JH9ffCHciiG5qd8&ehbc=2E312F&noprof=1"
-                title="Rhodes coverage map"
-                className="absolute inset-0 -mt-[64px] h-[calc(100%+70px)] w-full border-0 md:-mt-[76px] md:h-[calc(100%+80px)]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-                onLoad={() => setIsMapLoaded(true)}
-              />
+            <div className="absolute inset-0 overflow-hidden rounded-sm">
+              <VillasMap onReady={() => setIsMapLoaded(true)} />
 
               <div
                 className={[
