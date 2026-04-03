@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Mediterranean Aura",
     description: siteDescription,
-    images: ["/opengraph-image.jpg"],
+    images: ["/opengraph-imageV2.jpg"],
   },
   ...(googleSiteVerification
     ? { verification: { google: googleSiteVerification } }

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: "https://www.mediterraneanaura.gr",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/opengraph-imageV2.jpg",
         width: 247,
         height: 211,
         alt: "Mediterranean Aura",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "Mediterranean Aura — In-villa massage & wellness, Rhodes",
     description:
       "Luxury in-villa massage in Rhodes, Greece. Couples rituals, aromatherapy, deep tissue & relaxation—delivered to your private villa.",
-    images: ["/opengraph-image.png"],
+    images: ["/opengraph-imageV2.jpg"],
   },
 };
 
