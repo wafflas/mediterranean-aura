@@ -106,7 +106,114 @@ body {
   transform: scale(1);
 }
 
-/* Villas map: touch-friendly controls (Lighthouse / WCAG target size) */
+.villas-map .maplibregl-canvas-container {
+  z-index: 0;
+}
+
+.villas-map .maplibregl-marker {
+  z-index: 3 !important;
+  pointer-events: auto !important;
+}
+
+.villas-map .maplibregl-control-container {
+  z-index: 5 !important;
+}
+
+.villas-map .villas-map-pin svg {
+  pointer-events: none;
+}
+
+.villas-map .maplibregl-popup.villas-map-popup {
+  z-index: 6;
+  max-width: none;
+}
+
+.villas-map .maplibregl-popup.villas-map-popup .maplibregl-popup-content {
+  padding: 0;
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(33, 52, 62, 0.18);
+  background: #fff;
+  overflow: hidden;
+}
+
+.villas-map .villas-map-popup-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 12px;
+  max-width: min(280px, calc(100vw - 32px));
+  box-sizing: border-box;
+}
+
+.villas-map .villas-map-popup-label {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #21343e;
+  text-align: center;
+  word-wrap: break-word;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.villas-map .villas-map-popup-close {
+  border: none;
+  background: transparent;
+  color: #21343e;
+  cursor: pointer;
+  line-height: 1;
+  border-radius: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.villas-map .villas-map-popup-close:focus {
+  outline: none;
+}
+
+.villas-map .villas-map-popup-close:focus-visible {
+  outline: 2px solid #21343e;
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .villas-map .villas-map-popup-inner {
+    max-width: min(220px, calc(100vw - 24px));
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .villas-map .villas-map-popup-label {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .villas-map .villas-map-popup-close {
+    min-width: 40px;
+    min-height: 40px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.15rem;
+  }
+}
+
 .villas-map .maplibregl-ctrl-group button {
   width: 48px !important;
   height: 48px !important;
@@ -115,16 +222,3 @@ body {
   box-sizing: border-box;
 }
 
-.villas-map .maplibregl-popup-close-button {
-  width: 48px !important;
-  height: 48px !important;
-  min-width: 48px;
-  min-height: 48px;
-  padding: 0;
-  font-size: 1.5rem;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-}

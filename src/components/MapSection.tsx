@@ -66,21 +66,21 @@ export function MapSection() {
             <div className="absolute inset-0 overflow-hidden rounded-sm">
               <VillasMap onReady={() => setIsMapLoaded(true)} />
 
-              <div
-                className={[
-                  "pointer-events-none absolute inset-0 grid place-items-center",
-                  "bg-secondary/40 backdrop-blur-[1px]",
-                  "transition-opacity duration-500",
-                  isMapLoaded ? "opacity-0" : "opacity-100",
-                ].join(" ")}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="h-6 w-6 animate-spin rounded-full border border-primary/25 border-t-primary/70" />
-                  <span className="font-canela font-light tracking-[0.06em] text-primary/80">
-                    Loading map…
-                  </span>
+              {!isMapLoaded ? (
+                <div
+                  className={[
+                    "pointer-events-none absolute inset-0 grid place-items-center",
+                    "bg-secondary/40 backdrop-blur-[1px]",
+                  ].join(" ")}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="h-6 w-6 animate-spin rounded-full border border-primary/25 border-t-primary/70" />
+                    <span className="font-canela font-light tracking-[0.06em] text-primary/80">
+                      Loading map…
+                    </span>
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </div>
         </div>

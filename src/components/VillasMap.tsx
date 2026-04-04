@@ -9,6 +9,10 @@ import "maplibre-gl/dist/maplibre-gl.css";
 const MAP_PRIMARY = "#21343E";
 const MAP_SECONDARY = "#DFD8CF";
 
+const PIN_TOUCH_PX = 48;
+const PIN_SVG_PX = 40;
+const POPUP_OFFSET_Y_PX = -(PIN_TOUCH_PX + 6);
+
 interface VillasMapProps {
   onReady?: () => void;
 }
@@ -88,8 +92,12 @@ export function VillasMap({ onReady }: VillasMapProps) {
         map.fitBounds(bounds, { padding: 48, maxZoom: 12, duration: 0 });
 
         popup = new maplibregl.Popup({
-          closeButton: true,
+          closeButton: false,
           closeOnClick: true,
+          focusAfterOpen: false,
+          anchor: "bottom",
+          offset: [0, POPUP_OFFSET_Y_PX],
+          className: "villas-map-popup",
         });
 
         for (const feature of data.features) {
@@ -104,14 +112,54 @@ export function VillasMap({ onReady }: VillasMapProps) {
           markerEl.innerHTML = getPinSvgMarkup();
           applyPinTouchTargetStyles(markerEl);
 
-          markerEl.addEventListener("click", () => {
+          function openVillaPopup() {
             if (!map || !popup) return;
-            popup
-              .setLngLat([lng, lat])
-              .setHTML(
-                `<div style="padding:4px 6px;font-size:14px;color:${MAP_PRIMARY}">${escapeHtml(name)}</div>`,
-              )
-              .addTo(map);
+            const inner = document.createElement("div");
+            inner.className = "villas-map-popup-inner";
+
+            const label = document.createElement("div");
+            label.className = "villas-map-popup-label";
+            label.textContent = name;
+
+            const closeBtn = document.createElement("button");
+            closeBtn.type = "button";
+            closeBtn.className = "villas-map-popup-close";
+            closeBtn.setAttribute("aria-label", "Close");
+            closeBtn.textContent = "×";
+            closeBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              popup?.remove();
+            });
+
+            inner.append(label, closeBtn);
+
+            popup.setLngLat([lng, lat]).setDOMContent(inner).addTo(map);
+          }
+
+          let lastTouchEndAt = 0;
+
+          markerEl.addEventListener(
+            "pointerdown",
+            (e) => {
+              e.stopPropagation();
+            },
+            true,
+          );
+          markerEl.addEventListener(
+            "touchend",
+            (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              lastTouchEndAt = Date.now();
+              openVillaPopup();
+            },
+            { passive: false },
+          );
+          markerEl.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (Date.now() - lastTouchEndAt < 650) return;
+            openVillaPopup();
           });
 
           markerEl.addEventListener("mouseenter", () => {
@@ -153,23 +201,10 @@ export function VillasMap({ onReady }: VillasMapProps) {
     <div
       ref={containerRef}
       className="villas-map absolute inset-0 h-full w-full [&_.maplibregl-ctrl-attrib]:bg-secondary/90 [&_.maplibregl-ctrl-attrib]:text-[10px] [&_.maplibregl-ctrl-attrib]:text-primary/80"
-      role="application"
       aria-label="Interactive map of villa locations in Rhodes"
     />
   );
 }
-
-function escapeHtml(text: string): string {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
-/** WCAG 2.5.5: min ~44×44px; we use 48×48 with visual pin inset for easier tapping. */
-const PIN_TOUCH_PX = 48;
-const PIN_SVG_PX = 40;
 
 function applyPinTouchTargetStyles(el: HTMLButtonElement) {
   el.style.minWidth = `${PIN_TOUCH_PX}px`;
@@ -185,7 +220,7 @@ function applyPinTouchTargetStyles(el: HTMLButtonElement) {
   el.style.alignItems = "flex-end";
   el.style.justifyContent = "center";
   el.style.boxSizing = "border-box";
-  el.style.touchAction = "manipulation";
+  el.style.touchAction = "none";
   el.style.setProperty("-webkit-tap-highlight-color", "transparent");
 }
 
