@@ -7,6 +7,7 @@ import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import { ReservationProvider } from "@/components/ReservationProvider";
 import LoadingIntro from "@/components/ui/LoadingIntro";
 import Navbar from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { WhatsAppFab } from "@/components/ui/WhatsAppFab";
 
@@ -156,6 +157,7 @@ export default async function RootLayout({
           <SmoothScrollProvider>
             <LoadingIntro />
             {children}
+            <Footer />
           </SmoothScrollProvider>
           <WhatsAppFab />
           <CookieConsent hasConsent={hasCookieConsent} />

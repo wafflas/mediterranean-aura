@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -12,9 +10,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen bg-secondary flex flex-col items-center justify-center px-8 text-center">
+    <main className="min-h-screen bg-secondary flex flex-col items-center justify-center px-8 text-center">
         <p className="font-apercu text-[0.6rem] tracking-[0.28em] uppercase text-primary/40 mb-6">
           ERROR 404
         </p>
@@ -31,8 +27,6 @@ export default function NotFound() {
         >
           RETURN HOME
         </Link>
-      </main>
-      <Footer />
-    </>
+    </main>
   );
 }

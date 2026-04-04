@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/Footer";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
 export const metadata: Metadata = {
@@ -49,7 +48,6 @@ export default function TermsOfService() {
           <p className="mb-4">If you have any questions about these Terms, please contact us at mediterraneanaurarhodes@gmail.com or call us at +30 694 745 9658.</p>
         </div>
       </div>
-      <Footer />
     </main>
   );
 }

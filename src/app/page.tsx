@@ -5,7 +5,6 @@ import { Concept } from "@/components/Concept";
 import { AuraDifference } from "@/components/AuraDifference";
 import { MapSection } from "@/components/MapSection";
 import { Reviews } from "@/components/Reviews";
-import { Footer } from "@/components/Footer";
 import { IvDocPromoSection } from "@/components/IvDocPromoSection";
 
 export const metadata: Metadata = {
@@ -47,7 +46,6 @@ export default function Home() {
       <MapSection />
       <IvDocPromoSection />
       <Reviews />
-      <Footer />
     </main>
   );
 }
