@@ -9,9 +9,12 @@ import "maplibre-gl/dist/maplibre-gl.css";
 const MAP_PRIMARY = "#21343E";
 const MAP_SECONDARY = "#DFD8CF";
 
-const PIN_TOUCH_PX = 48;
 const PIN_SVG_PX = 40;
-const POPUP_OFFSET_Y_PX = -(PIN_TOUCH_PX + 6);
+const POPUP_OFFSET_Y_PX = -(PIN_SVG_PX + 14);
+
+const VILLAS_SOURCE_ID = "villas";
+const VILLA_PIN_IMAGE_ID = "villa-pin";
+const VILLAS_PIN_LAYER_ID = "villas-pins";
 
 interface VillasMapProps {
   onReady?: () => void;
@@ -50,6 +53,28 @@ function extendBounds(bounds: LngLatBounds, collection: FeatureCollection) {
   }
 }
 
+function getPinSvgMarkup(): string {
+  const size = PIN_SVG_PX;
+  const strokeWidth = 2;
+  const r = 9;
+
+  return `
+<svg width="${size}" height="${size}" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M24 46s14-13.5 14-26C38 12.3 31.7 6 24 6S10 12.3 10 20c0 12.5 14 26 14 26Z" fill="${MAP_PRIMARY}" stroke="${MAP_SECONDARY}" stroke-width="${strokeWidth}"/>
+  <circle cx="24" cy="20" r="${r}" fill="${MAP_SECONDARY}"/>
+</svg>
+  `.trim();
+}
+
+function loadSvgAsImage(svgMarkup: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("Failed to load villa pin SVG as image"));
+    img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgMarkup)}`;
+  });
+}
+
 export function VillasMap({ onReady }: VillasMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const onReadyRef = useRef(onReady);
@@ -61,9 +86,10 @@ export function VillasMap({ onReady }: VillasMapProps) {
 
     let map: import("maplibre-gl").Map | null = null;
     let popup: import("maplibre-gl").Popup | null = null;
-    const markers: Array<import("maplibre-gl").Marker> = [];
     let ro: ResizeObserver | null = null;
     let cancelled = false;
+
+    const interactiveLayers = [VILLAS_PIN_LAYER_ID];
 
     (async () => {
       const maplibregl = (await import("maplibre-gl")).default;
@@ -84,35 +110,68 @@ export function VillasMap({ onReady }: VillasMapProps) {
         "top-right",
       );
 
+      popup = new maplibregl.Popup({
+        closeButton: false,
+        closeOnClick: true,
+        focusAfterOpen: false,
+        anchor: "bottom",
+        offset: [0, POPUP_OFFSET_Y_PX],
+        className: "villas-map-popup",
+      });
+
       map.on("load", () => {
-        if (!map || cancelled) return;
+        void (async () => {
+          if (!map || cancelled) return;
 
-        const bounds = new maplibregl.LngLatBounds();
-        extendBounds(bounds, data);
-        map.fitBounds(bounds, { padding: 48, maxZoom: 12, duration: 0 });
+          let pinIconReady = false;
+          try {
+            const pinImg = await loadSvgAsImage(getPinSvgMarkup());
+            if (!map || cancelled) return;
+            if (!map.hasImage(VILLA_PIN_IMAGE_ID)) {
+              map.addImage(VILLA_PIN_IMAGE_ID, pinImg);
+            }
+            pinIconReady = true;
+          } catch {
+            pinIconReady = false;
+          }
 
-        popup = new maplibregl.Popup({
-          closeButton: false,
-          closeOnClick: true,
-          focusAfterOpen: false,
-          anchor: "bottom",
-          offset: [0, POPUP_OFFSET_Y_PX],
-          className: "villas-map-popup",
-        });
+          map.addSource(VILLAS_SOURCE_ID, {
+            type: "geojson",
+            data,
+          });
 
-        for (const feature of data.features) {
-          if (feature.geometry.type !== "Point") continue;
-          const [lng, lat] = (feature.geometry as Point).coordinates;
-          const name = String(feature.properties?.name ?? "Villa");
+          if (pinIconReady) {
+            map.addLayer({
+              id: VILLAS_PIN_LAYER_ID,
+              type: "symbol",
+              source: VILLAS_SOURCE_ID,
+              layout: {
+                "icon-image": VILLA_PIN_IMAGE_ID,
+                "icon-size": 1,
+                "icon-anchor": "bottom",
+                "icon-allow-overlap": true,
+                "icon-ignore-placement": true,
+              },
+            });
+          } else {
+            map.addLayer({
+              id: VILLAS_PIN_LAYER_ID,
+              type: "circle",
+              source: VILLAS_SOURCE_ID,
+              paint: {
+                "circle-color": MAP_PRIMARY,
+                "circle-stroke-color": MAP_SECONDARY,
+                "circle-stroke-width": 2,
+                "circle-radius": 24,
+              },
+            });
+          }
 
-          const markerEl = document.createElement("button");
-          markerEl.type = "button";
-          markerEl.className = "villas-map-pin";
-          markerEl.setAttribute("aria-label", name);
-          markerEl.innerHTML = getPinSvgMarkup();
-          applyPinTouchTargetStyles(markerEl);
+          const bounds = new maplibregl.LngLatBounds();
+          extendBounds(bounds, data);
+          map.fitBounds(bounds, { padding: 48, maxZoom: 14, duration: 0 });
 
-          function openVillaPopup() {
+          function openVillaPopup(lng: number, lat: number, name: string) {
             if (!map || !popup) return;
             const inner = document.createElement("div");
             inner.className = "villas-map-popup-inner";
@@ -137,54 +196,31 @@ export function VillasMap({ onReady }: VillasMapProps) {
             popup.setLngLat([lng, lat]).setDOMContent(inner).addTo(map);
           }
 
-          let lastTouchEndAt = 0;
-
-          markerEl.addEventListener(
-            "pointerdown",
-            (e) => {
-              e.stopPropagation();
-            },
-            true,
-          );
-          markerEl.addEventListener(
-            "touchend",
-            (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              lastTouchEndAt = Date.now();
-              openVillaPopup();
-            },
-            { passive: false },
-          );
-          markerEl.addEventListener("click", (e) => {
-            e.stopPropagation();
-            if (Date.now() - lastTouchEndAt < 650) return;
-            openVillaPopup();
+          map.on("click", VILLAS_PIN_LAYER_ID, (e) => {
+            if (!e.features?.length) return;
+            const feature = e.features[0];
+            const coords = (feature.geometry as Point).coordinates;
+            const [lng, lat] = coords;
+            const name = String(feature.properties?.name ?? "Villa");
+            openVillaPopup(lng, lat, name);
           });
 
-          markerEl.addEventListener("mouseenter", () => {
-            if (map) map.getCanvas().style.cursor = "pointer";
+          for (const layerId of interactiveLayers) {
+            map.on("mouseenter", layerId, () => {
+              if (map) map.getCanvas().style.cursor = "pointer";
+            });
+            map.on("mouseleave", layerId, () => {
+              if (map) map.getCanvas().style.cursor = "";
+            });
+          }
+
+          ro = new ResizeObserver(() => {
+            map?.resize();
           });
-          markerEl.addEventListener("mouseleave", () => {
-            if (map) map.getCanvas().style.cursor = "";
-          });
+          ro.observe(el);
 
-          const marker = new maplibregl.Marker({
-            element: markerEl,
-            anchor: "bottom",
-          })
-            .setLngLat([lng, lat])
-            .addTo(map);
-
-          markers.push(marker);
-        }
-
-        ro = new ResizeObserver(() => {
-          map?.resize();
-        });
-        ro.observe(el);
-
-        onReadyRef.current?.();
+          onReadyRef.current?.();
+        })();
       });
     })();
 
@@ -192,7 +228,6 @@ export function VillasMap({ onReady }: VillasMapProps) {
       cancelled = true;
       ro?.disconnect();
       popup?.remove();
-      for (const m of markers) m.remove();
       map?.remove();
     };
   }, []);
@@ -204,35 +239,4 @@ export function VillasMap({ onReady }: VillasMapProps) {
       aria-label="Interactive map of villa locations in Rhodes"
     />
   );
-}
-
-function applyPinTouchTargetStyles(el: HTMLButtonElement) {
-  el.style.minWidth = `${PIN_TOUCH_PX}px`;
-  el.style.minHeight = `${PIN_TOUCH_PX}px`;
-  el.style.width = `${PIN_TOUCH_PX}px`;
-  el.style.height = `${PIN_TOUCH_PX}px`;
-  el.style.padding = "0";
-  el.style.margin = "0";
-  el.style.border = "none";
-  el.style.background = "transparent";
-  el.style.cursor = "pointer";
-  el.style.display = "flex";
-  el.style.alignItems = "flex-end";
-  el.style.justifyContent = "center";
-  el.style.boxSizing = "border-box";
-  el.style.touchAction = "none";
-  el.style.setProperty("-webkit-tap-highlight-color", "transparent");
-}
-
-function getPinSvgMarkup(): string {
-  const size = PIN_SVG_PX;
-  const strokeWidth = 2;
-  const r = 9;
-
-  return `
-<svg width="${size}" height="${size}" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-  <path d="M24 46s14-13.5 14-26C38 12.3 31.7 6 24 6S10 12.3 10 20c0 12.5 14 26 14 26Z" fill="${MAP_PRIMARY}" stroke="${MAP_SECONDARY}" stroke-width="${strokeWidth}"/>
-  <circle cx="24" cy="20" r="${r}" fill="${MAP_SECONDARY}"/>
-</svg>
-  `.trim();
 }

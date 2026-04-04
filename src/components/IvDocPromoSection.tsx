@@ -8,7 +8,7 @@ export function IvDocPromoSection() {
       className="bg-secondary px-4 py-10 md:py-16"
     >
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
-        <div className="rounded-2xl border border-primary/15 bg-[#F1E7DC]/80 px-6 py-7 shadow-[0_18px_60px_rgba(0,0,0,0.22)] backdrop-blur-md md:flex md:items-center md:gap-10 md:px-10 md:py-8">
+        <div className="rounded-2xl border border-primary/15 bg-[#F1E7DC] px-6 py-7 shadow-[0_18px_60px_rgba(0,0,0,0.22)] md:flex md:items-center md:gap-10 md:px-10 md:py-8">
           <div className="mb-6 flex items-center justify-center md:mb-0 md:w-1/3">
             <div className="relative w-full max-w-[210px]">
               <Link
@@ -30,14 +30,14 @@ export function IvDocPromoSection() {
           </div>
 
           <div className="md:w-2/3 md:space-y-4">
-            <p className="font-apercu text-[10px] uppercase tracking-[0.2em] text-primary/50">
+            <p className="font-apercu text-[10px] uppercase tracking-[0.2em] text-primary">
               Wellness partner in Rhodes
             </p>
             <h3 className="font-canela text-xl font-light text-primary md:text-2xl">
               15% off iV Doc Rhodes with code{" "}
               <span className="whitespace-nowrap">AURA15</span>
             </h3>
-            <p className="mt-2 max-w-xl font-apercu text-xs text-primary/80 md:text-sm">
+            <p className="mt-2 max-w-xl font-apercu text-xs text-primary/90 md:text-sm">
               Use your code in iV Doc Rhodes on any IV therapy service or product to
               deepen your post-treatment recovery and relaxation.
             </p>
@@ -46,7 +46,7 @@ export function IvDocPromoSection() {
               <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 font-apercu text-[11px] tracking-[0.26em] text-primary">
                 AURA15
               </span>
-              <span className="font-apercu text-[11px] text-primary/75 md:text-xs">
+              <span className="font-apercu text-[11px] text-primary/90 md:text-xs">
                 Apply at checkout for{" "}
                 <span className="font-medium text-primary">
                   15% off every service and product
@@ -69,7 +69,7 @@ export function IvDocPromoSection() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-primary/15 bg-[#F1E7DC]/80 px-6 py-7 shadow-[0_18px_60px_rgba(0,0,0,0.22)] backdrop-blur-md md:flex md:items-center md:gap-10 md:px-10 md:py-8">
+        <div className="rounded-2xl border border-primary/15 bg-[#F1E7DC] px-6 py-7 shadow-[0_18px_60px_rgba(0,0,0,0.22)] md:flex md:items-center md:gap-10 md:px-10 md:py-8">
           <div className="mb-6 flex items-center justify-center md:mb-0 md:w-1/3">
             <div className="relative w-full max-w-[280px]">
               <Link
@@ -91,14 +91,14 @@ export function IvDocPromoSection() {
           </div>
 
           <div className="md:w-2/3 md:space-y-4">
-            <p className="font-apercu text-[10px] uppercase tracking-[0.2em] text-primary/50">
+            <p className="font-apercu text-[10px] uppercase tracking-[0.2em] text-primary">
               Premium aesthetic medicine partner
             </p>
             <h3 className="font-canela text-xl font-light text-primary md:text-2xl">
               15% off Dermancy Medical House with code{" "}
               <span className="whitespace-nowrap">AURA15</span>
             </h3>
-            <p className="mt-2 max-w-xl font-apercu text-xs text-primary/80 md:text-sm">
+            <p className="mt-2 max-w-xl font-apercu text-xs text-primary/90 md:text-sm">
               Enjoy 15% off premium aesthetic medicine treatments, including
               Botox and more, when you use the same code.
             </p>
@@ -107,7 +107,7 @@ export function IvDocPromoSection() {
               <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 font-apercu text-[11px] tracking-[0.26em] text-primary">
                 AURA15
               </span>
-              <span className="font-apercu text-[11px] text-primary/75 md:text-xs">
+              <span className="font-apercu text-[11px] text-primary/90 md:text-xs">
                 Apply for{" "}
                 <span className="font-medium text-primary">
                   15% off premium aesthetic medicine treatments
