@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { cookies } from "next/headers";
 import "./globals.css";
@@ -119,6 +119,10 @@ export const metadata: Metadata = {
     : {}),
 };
 
+export const viewport: Viewport = {
+  themeColor: "#DFD8CF",
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -130,7 +134,7 @@ export default async function RootLayout({
   );
 
   return (
-    <html lang="en">
+    <html lang="en" className="bg-secondary">
       <head>
         <link rel="icon" href="/favicon_io/favicon.ico" sizes="any" />
         <link

@@ -70,7 +70,7 @@ export default function LoadingIntro() {
     <div
       ref={comp}
       data-loading-intro="active"
-      className="flex justify-center items-center w-screen h-screen fixed top-0 left-0 bg-secondary z-[9999]"
+      className="flex justify-center items-center fixed inset-0 z-[9999] min-h-dvh w-full bg-secondary"
     >
       <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 px-6">
         {phrase.split(" ").map((word, index) => (
