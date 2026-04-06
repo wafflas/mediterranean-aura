@@ -57,7 +57,7 @@ export default function LandingPage() {
 
   return (
     <>
-      <section className="relative h-screen min-h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden">
+      <section className="relative h-dvh w-full flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/landingPageImage.webp"
