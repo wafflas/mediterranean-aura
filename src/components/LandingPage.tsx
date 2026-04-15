@@ -47,7 +47,10 @@ export default function LandingPage() {
       const fallbackTimeoutId = setTimeout(playHeadingReveal, 4500);
 
       return () => {
-        window.removeEventListener("loading-intro:complete", handleIntroComplete);
+        window.removeEventListener(
+          "loading-intro:complete",
+          handleIntroComplete,
+        );
         clearTimeout(fallbackTimeoutId);
       };
     }, headingRef);
@@ -57,7 +60,7 @@ export default function LandingPage() {
 
   return (
     <>
-      <section className="relative h-dvh w-full flex flex-col items-center justify-center overflow-hidden">
+      <section className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/landingPageImage.webp"
@@ -101,9 +104,7 @@ export default function LandingPage() {
                 <span>VILLA</span>
               </span>
             </span>
-            <span className="sr-only">
-              RELAX IN THE COMFORT OF YOUR VILLA
-            </span>
+            <span className="sr-only">RELAX IN THE COMFORT OF YOUR VILLA</span>
           </h1>
 
           <button
@@ -114,7 +115,6 @@ export default function LandingPage() {
           </button>
         </div>
         <ScrollDownIndicator />
-
       </section>
     </>
   );
