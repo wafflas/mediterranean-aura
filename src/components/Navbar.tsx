@@ -226,10 +226,10 @@ export default function Navbar() {
         <div className="mt-10 pt-6 border-t border-primary/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex flex-col gap-1">
             <a
-              href="tel:+306947459658"
+              href="tel:+306942620460"
               className="font-apercu text-[0.7rem] tracking-[0.12em] uppercase text-primary/60 hover:text-primary transition-colors"
             >
-              +30 694 745 9658
+              +30 694 262 0460
             </a>
             <a
               href="mailto:mediterraneanaurarhodes@gmail.com"
@@ -248,7 +248,7 @@ export default function Navbar() {
               Instagram
             </a>
             <a
-              href="https://wa.me/306947459658"
+              href="https://wa.me/306942620460?text=Hi!%20I%E2%80%99d%20like%20to%20book%20a%20massage.%20What%20availability%20do%20you%20have%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="font-apercu text-[0.6rem] tracking-[0.18em] uppercase text-primary/50 hover:text-primary transition-colors"

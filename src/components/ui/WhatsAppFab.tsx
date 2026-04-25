@@ -1,7 +1,8 @@
 import { IconWhatsapp } from "@/lib/icons";
 
-const whatsappPhone = "306947459658";
-const whatsappHref = `https://wa.me/${whatsappPhone}`;
+const whatsappPhone = "306942620460";
+const whatsappText = "Hi! I’d like to book a massage. What availability do you have?";
+const whatsappHref = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(whatsappText)}`;
 
 export function WhatsAppFab() {
   return (
@@ -9,7 +10,7 @@ export function WhatsAppFab() {
       href={whatsappHref}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp: +30 694 745 9658"
+      aria-label="Chat with us on WhatsApp: +30 694 262 0460"
       className="group fixed bottom-6 right-5 z-[3900] inline-flex items-center justify-center md:bottom-8 md:right-8"
     >
       <span
