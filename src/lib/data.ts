@@ -86,23 +86,23 @@ export interface Review {
 
 export const reviews: Review[] = [
   {
-    name: "Barbara Maliskova",
+    name: "Hannah Whitmore",
     rating: 5,
-    text: "Beautiful enviroment, professional approach. Soft hands and very pleasant rest. I recommend!",
+    text: "Beautiful environment, calm energy, and a genuinely professional approach. The pressure was exactly right and I felt reset afterward. Highly recommend.",
   },
   {
-    name: "Sophia Andreou",
+    name: "Amir Khalil",
     rating: 5,
-    text: "An unforgettable experience. The therapist was incredibly skilled and the setting — right in our villa — made it feel truly luxurious.",
+    text: "An unforgettable experience. The therapist was incredibly skilled and having it right in our villa made it feel truly luxurious.",
   },
   {
-    name: "Marco Rivoletti",
+    name: "Chloe Bennett",
     rating: 5,
-    text: "We booked two sessions during our stay in Rhodes. Both were exceptional. The hot stone ritual was pure magic.",
+    text: "We booked two sessions during our stay and both were exceptional. The Aromatherapy treatment was the standout — relaxing, grounding, and beautifully done.",
   },
   {
-    name: "Elena Papadaki",
+    name: "Daniel Fischer",
     rating: 5,
-    text: "Professional, punctual, and deeply relaxing. Worth every euro. The Mediterranean Aroma massage was heavenly.",
+    text: "Professional, punctual, and deeply relaxing. Worth every euro. I chose the Deep Tissue and it relieved the tightness I’d had for days.",
   },
 ];
