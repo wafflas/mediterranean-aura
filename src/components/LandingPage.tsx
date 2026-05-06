@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
 import ScrollDownIndicator from "./ui/ScrollDownIndicator";
 import { useReservation } from "./ReservationProvider";
+import { VideoBackground } from "./VideoBackground";
 
 export default function LandingPage() {
   const { openReservation } = useReservation();
@@ -62,13 +62,9 @@ export default function LandingPage() {
     <>
       <section className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/landingPageImage.webp"
-            alt="Relaxing luxury in-villa massage in Rhodes with a view of the sea"
-            fill
-            priority
-            className="object-cover object-center"
-            quality={100}
+          <VideoBackground
+            src="/images/backgroundVideo.webm"
+            poster="/images/landingPageImage.webp"
           />
         </div>
 

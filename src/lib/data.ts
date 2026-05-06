@@ -9,13 +9,12 @@ export interface Service {
 
 // ─── Services ───────────────────────────────────────────────────────────────────
 export const services: Service[] = [
-
   {
     title: "Relax Massage",
     description:
       "A flowing full-body treatment using long, warm strokes to ease tension and restore circulation. Ideal after a day under the Mediterranean sun. Pure, effortless restoration.",
     price: 120,
-    image: "/images/services/relax-massage.webp",
+    image: "/images/services/relax-massage2.webp",
     durations: ["60 MIN", "90 MIN"],
   },
   {
@@ -23,7 +22,7 @@ export const services: Service[] = [
     description:
       "Targets deeper layers of muscle and connective tissue to release chronic tension and restore mobility. Pressure is firm and intentional — deeply effective for persistent knots.",
     price: 150,
-    image: "/images/services/deep-tissue.webp",
+    image: "/images/services/deep-tissue2.webp",
     durations: ["60 MIN", "90 MIN"],
   },
   {
@@ -43,7 +42,7 @@ export const services: Service[] = [
     durations: ["60 MIN", "90 MIN"],
     promoLabel: "Champagne included",
   },
-    /*{
+  /*{
     title: "Back & Neck Massage",
     description:
       "A highly effective rehabilitation technique combining elements of acupressure and yoga. Targets the most common tension zones. For particularly stiff muscles, this can be intensely powerful.",
