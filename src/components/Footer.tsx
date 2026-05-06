@@ -65,7 +65,7 @@ export function Footer() {
             </button>
             <div className="flex items-center gap-6 md:gap-8">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/mediterranean_aura/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

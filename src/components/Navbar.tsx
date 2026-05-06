@@ -240,7 +240,7 @@ export default function Navbar() {
           </div>
           <div className="flex items-center gap-6">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/mediterranean_aura/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-apercu text-[0.6rem] tracking-[0.18em] uppercase text-primary/50 hover:text-primary transition-colors"
