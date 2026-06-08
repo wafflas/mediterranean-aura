@@ -13,7 +13,7 @@ export const services: Service[] = [
     title: "Relax Massage",
     description:
       "A flowing full-body treatment using long, warm strokes to ease tension and restore circulation. Ideal after a day under the Mediterranean sun. Pure, effortless restoration.",
-    price: 120,
+    price: 80,
     image: "/images/services/relax-massage2.webp",
     durations: ["60 MIN", "90 MIN"],
   },
@@ -21,7 +21,7 @@ export const services: Service[] = [
     title: "Deep Tissue",
     description:
       "Targets deeper layers of muscle and connective tissue to release chronic tension and restore mobility. Pressure is firm and intentional — deeply effective for persistent knots.",
-    price: 150,
+    price: 110,
     image: "/images/services/deep-tissue2.webp",
     durations: ["60 MIN", "90 MIN"],
   },
@@ -29,7 +29,7 @@ export const services: Service[] = [
     title: "Aromatherapy",
     description:
       "A deeply sensory ritual combining skilled touch with pure essential oil blends — lavender, neroli, eucalyptus. Calms the nervous system on contact. The scent stays with you for hours.",
-    price: 140,
+    price: 100,
     image: "/images/services/aromatherapy.webp",
     durations: ["60 MIN", "90 MIN"],
   },
@@ -37,7 +37,7 @@ export const services: Service[] = [
     title: "Couple Massage",
     description:
       "Two guests, two therapists, one shared moment of stillness. A romantic and restorative experience, performed side-by-side on your private villa terrace overlooking the sea.",
-    price: 220,
+    price: 180,
     image: "/images/services/couples.webp",
     durations: ["60 MIN", "90 MIN"],
     promoLabel: "Champagne included",
