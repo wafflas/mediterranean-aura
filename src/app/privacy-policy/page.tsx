@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Mediterranean Aura handles your data for in-villa massage and wellness on Rhodes — cookies, Google Analytics (with consent), contact details, and your rights.",
+    "How Mediterranean Aura handles your data for in-villa massage and wellness on Rhodes — cookies, Google Analytics and Ads (with consent), contact details, and your rights.",
 };
 
 export default function PrivacyPolicy() {
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
           <p className="mb-4">We take reasonable measures to help protect your personal information from loss, theft, misuse, unauthorized access, disclosure, alteration, and destruction. We do not sell or share your personal information with third parties for their marketing purposes.</p>
 
           <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">4. Cookies and Analytics</h2>
-          <p className="mb-4">Our website uses cookies and similar technologies to improve website performance and understand visitor behavior. We use Google Analytics to collect aggregated usage data, such as visited pages, session duration, and approximate location information. Google Analytics is loaded only after you provide consent through our cookie banner.</p>
+          <p className="mb-4">Our website uses cookies and similar technologies to improve website performance, understand visitor behavior, and measure advertising performance. We use Google Analytics to collect aggregated usage data, such as visited pages, session duration, and approximate location information. We also use Google Ads conversion tracking to measure the effectiveness of our advertising campaigns. These tools are loaded only after you provide consent through our cookie banner.</p>
 
           <h2 className="text-2xl md:text-3xl font-canela font-light text-primary mt-8 mb-2">5. Consent and Cookie Choices</h2>
           <p className="mb-4">When you click &quot;Accept&quot; on our cookie banner, we store your consent choice in a secure cookie so your preference can be remembered on future visits. If you prefer, you can remove cookies in your browser settings at any time, which may cause the banner to appear again.</p>
