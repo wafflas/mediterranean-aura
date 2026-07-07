@@ -1,3 +1,5 @@
+"use client";
+
 import { trackWhatsAppClick } from "@/lib/googleAds";
 import { IconWhatsapp } from "@/lib/icons";
 
