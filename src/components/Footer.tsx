@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { trackWhatsAppClick } from "@/lib/googleAds";
 import { IconInstagram, IconWhatsapp } from "@/lib/icons";
 import Logo from "./ui/Logo";
 import LogoSymbol from "./ui/LogoSymbol";
@@ -77,6 +78,7 @@ export function Footer() {
               </a>
               <a
                 href="https://wa.me/306942620460?text=Hi!%20I%E2%80%99d%20like%20to%20book%20a%20massage.%20What%20availability%20do%20you%20have%3F"
+                onClick={trackWhatsAppClick}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

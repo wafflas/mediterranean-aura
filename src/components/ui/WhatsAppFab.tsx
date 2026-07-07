@@ -1,3 +1,4 @@
+import { trackWhatsAppClick } from "@/lib/googleAds";
 import { IconWhatsapp } from "@/lib/icons";
 
 const whatsappPhone = "306942620460";
@@ -8,6 +9,7 @@ export function WhatsAppFab() {
   return (
     <a
       href={whatsappHref}
+      onClick={trackWhatsAppClick}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp: +30 694 262 0460"

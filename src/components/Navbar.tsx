@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import { trackWhatsAppClick } from "@/lib/googleAds";
 import LogoSymbol from "./ui/LogoSymbol";
 import { useReservation } from "./ReservationProvider";
 import { usePathname } from "next/navigation";
@@ -249,6 +250,7 @@ export default function Navbar() {
             </a>
             <a
               href="https://wa.me/306942620460?text=Hi!%20I%E2%80%99d%20like%20to%20book%20a%20massage.%20What%20availability%20do%20you%20have%3F"
+              onClick={trackWhatsAppClick}
               target="_blank"
               rel="noopener noreferrer"
               className="font-apercu text-[0.6rem] tracking-[0.18em] uppercase text-primary/50 hover:text-primary transition-colors"
