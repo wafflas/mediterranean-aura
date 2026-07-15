@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
+import { grantGoogleConsent } from "@/lib/googleConsent";
 
 interface CookieConsentProps {
   hasConsent: boolean;
@@ -49,6 +50,8 @@ export function CookieConsent({ hasConsent }: CookieConsentProps) {
   const acceptCookies = async () => {
     if (isSubmitting) return;
     setIsSubmitting(true);
+
+    grantGoogleConsent();
 
     try {
       const response = await fetch("/api/cookie-consent", {

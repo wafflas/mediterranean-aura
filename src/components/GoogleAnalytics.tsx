@@ -10,8 +10,6 @@ interface GoogleAnalyticsProps {
 export function GoogleAnalytics({ hasConsent }: GoogleAnalyticsProps) {
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
-  if (!hasConsent) return null;
-
   const trackingIds = [measurementId, GOOGLE_ADS_ID].filter(
     (id): id is string => Boolean(id),
   );
@@ -23,16 +21,37 @@ export function GoogleAnalytics({ hasConsent }: GoogleAnalyticsProps) {
     .map((id) => `gtag('config', '${id}');`)
     .join("\n          ");
 
+  const consentUpdate = hasConsent
+    ? `
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            analytics_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+          });`
+    : "";
+
   return (
     <>
+      <Script id="google-consent-default" strategy="beforeInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            analytics_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            wait_for_update: 500
+          });${consentUpdate}
+        `}
+      </Script>
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${primaryId}`}
       />
       <Script id="gtag-init" strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           ${configCalls}
         `}
