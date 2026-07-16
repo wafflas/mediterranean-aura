@@ -49,10 +49,10 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col items-center gap-1 md:w-1/3 md:mt-0 mt-4">
-          <div className="md:scale-125 md:mt-4 transition-transform duration-500">
-            <div className="flex items-center justify-center">
-            <LogoSymbol logoColorFill="#DFD8CF" size={140} />
-            </div>
+            <div className="md:scale-125 md:mt-4 transition-transform duration-500">
+              <div className="flex items-center justify-center">
+                <LogoSymbol logoColorFill="#DFD8CF" size={140} />
+              </div>
               <Logo size={200} logoColorFill={"#DFD8CF"} />
             </div>
           </div>
@@ -85,7 +85,10 @@ export function Footer() {
                 className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border border-secondary/50 flex items-center justify-center text-secondary hover:border-secondary hover:bg-secondary/10 transition-all duration-300"
               >
                 <div className="scale-100 md:scale-125">
-                  <IconWhatsapp size={20} className="origin-center scale-[0.86]" />
+                  <IconWhatsapp
+                    size={20}
+                    className="origin-center scale-[0.86]"
+                  />
                 </div>
               </a>
             </div>

@@ -4,7 +4,8 @@ import { trackWhatsAppClick } from "@/lib/googleAds";
 import { IconWhatsapp } from "@/lib/icons";
 
 const whatsappPhone = "306942620460";
-const whatsappText = "Hi! I’d like to book a massage. What availability do you have?";
+const whatsappText =
+  "Hi! I’d like to book a massage. What availability do you have?";
 const whatsappHref = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(whatsappText)}`;
 
 export function WhatsAppFab() {

@@ -1,7 +1,6 @@
 import Script from "next/script";
 
-const GOOGLE_ADS_ID =
-  process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "AW-18273221862";
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "AW-18273221862";
 
 interface GoogleAnalyticsProps {
   hasConsent: boolean;

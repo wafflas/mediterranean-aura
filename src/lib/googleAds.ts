@@ -11,6 +11,8 @@ type GtagFunction = (
   eventName: "conversion",
   params: {
     send_to: string;
+    value?: number;
+    currency?: string;
     event_callback?: () => void;
     event_timeout?: number;
   },
@@ -35,6 +37,8 @@ export function trackWhatsAppClick(event: MouseEvent<HTMLAnchorElement>) {
 
   gtag("event", "conversion", {
     send_to: GOOGLE_ADS_WHATSAPP_CONVERSION,
+    value: 1.0,
+    currency: "EUR",
     event_callback: openWhatsApp,
     event_timeout: CONVERSION_CALLBACK_TIMEOUT_MS,
   });
