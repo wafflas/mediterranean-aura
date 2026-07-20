@@ -2,7 +2,7 @@ import type { MouseEvent } from "react";
 
 const GOOGLE_ADS_WHATSAPP_CONVERSION =
   process.env.NEXT_PUBLIC_GOOGLE_ADS_WHATSAPP_CONVERSION ??
-  "AW-18273221862/b_48CMiKmswcEOb5rllE";
+  "AW-18273221862/b_48CMiKmswcEOb5rIlE";
 
 const CONVERSION_CALLBACK_TIMEOUT_MS = 2000;
 
