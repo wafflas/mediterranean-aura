@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { trackWhatsAppClick } from "@/lib/googleAds";
+import { WhatsAppLink } from "@/components/ui/WhatsAppLink";
 import { IconInstagram, IconWhatsapp } from "@/lib/icons";
 import Logo from "./ui/Logo";
 import LogoSymbol from "./ui/LogoSymbol";
@@ -76,11 +76,7 @@ export function Footer() {
                   <IconInstagram />
                 </div>
               </a>
-              <a
-                href="https://wa.me/306942620460?text=Hi!%20I%E2%80%99d%20like%20to%20book%20a%20massage.%20What%20availability%20do%20you%20have%3F"
-                onClick={trackWhatsAppClick}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppLink
                 aria-label="WhatsApp"
                 className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border border-secondary/50 flex items-center justify-center text-secondary hover:border-secondary hover:bg-secondary/10 transition-all duration-300"
               >
@@ -90,7 +86,7 @@ export function Footer() {
                     className="origin-center scale-[0.86]"
                   />
                 </div>
-              </a>
+              </WhatsAppLink>
             </div>
           </div>
         </div>

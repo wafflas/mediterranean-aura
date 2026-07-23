@@ -1,20 +1,22 @@
 "use client";
 
-import { trackWhatsAppClick } from "@/lib/googleAds";
+import { WHATSAPP_HREF } from "@/lib/googleAds";
 import { IconWhatsapp } from "@/lib/icons";
 
-const whatsappPhone = "306942620460";
-const whatsappText =
-  "Hi! I’d like to book a massage. What availability do you have?";
-const whatsappHref = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(whatsappText)}`;
+declare global {
+  interface Window {
+    gtag_report_conversion?: (url?: string) => boolean;
+  }
+}
 
 export function WhatsAppFab() {
   return (
     <a
-      href={whatsappHref}
-      onClick={trackWhatsAppClick}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={WHATSAPP_HREF}
+      onClick={(event) => {
+        event.preventDefault();
+        window.gtag_report_conversion?.(WHATSAPP_HREF);
+      }}
       aria-label="Chat with us on WhatsApp: +30 694 262 0460"
       className="group fixed bottom-6 right-5 z-[3900] inline-flex items-center justify-center md:bottom-8 md:right-8"
     >

@@ -1,47 +1,33 @@
-import type { MouseEvent } from "react";
-
-const GOOGLE_ADS_WHATSAPP_CONVERSION =
+export const GOOGLE_ADS_WHATSAPP_CONVERSION =
   process.env.NEXT_PUBLIC_GOOGLE_ADS_WHATSAPP_CONVERSION ??
   "AW-18273221862/b_48CMiKmswcEOb5rIlE";
 
-const CONVERSION_CALLBACK_TIMEOUT_MS = 2000;
+export const WHATSAPP_HREF =
+  "https://wa.me/306942620460?text=Hi!%20I%E2%80%99d%20like%20to%20book%20a%20massage.%20What%20availability%20do%20you%20have%3F";
 
-type GtagFunction = (
-  command: "event",
-  eventName: "conversion",
-  params: {
-    send_to: string;
-    value?: number;
-    currency?: string;
-    event_callback?: () => void;
-    event_timeout?: number;
-  },
-) => void;
-
-export function trackWhatsAppClick(event: MouseEvent<HTMLAnchorElement>) {
-  if (typeof window === "undefined") return;
-
-  const gtag = (window as Window & { gtag?: GtagFunction }).gtag;
-
-  if (!gtag) return;
-
-  const href = event.currentTarget.href;
-  event.preventDefault();
-
-  let opened = false;
-  const openWhatsApp = () => {
-    if (opened) return;
-    opened = true;
-    window.open(href, "_blank", "noopener,noreferrer");
+/** Exact Google Ads event snippet function (exposed on window). */
+export const GTAG_REPORT_CONVERSION_SCRIPT = `
+  window.gtag_report_conversion = function gtag_report_conversion(url) {
+    var navigated = false;
+    var callback = function () {
+      if (navigated) return;
+      navigated = true;
+      if (typeof url !== 'undefined') {
+        window.location = url;
+      }
+    };
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        send_to: '${GOOGLE_ADS_WHATSAPP_CONVERSION}',
+        value: 1.0,
+        currency: 'EUR',
+        event_callback: callback,
+        event_timeout: 2000
+      });
+      setTimeout(callback, 2000);
+    } else {
+      callback();
+    }
+    return false;
   };
-
-  gtag("event", "conversion", {
-    send_to: GOOGLE_ADS_WHATSAPP_CONVERSION,
-    value: 1.0,
-    currency: "EUR",
-    event_callback: openWhatsApp,
-    event_timeout: CONVERSION_CALLBACK_TIMEOUT_MS,
-  });
-
-  window.setTimeout(openWhatsApp, CONVERSION_CALLBACK_TIMEOUT_MS);
-}
+`;

@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { GTAG_REPORT_CONVERSION_SCRIPT } from "@/lib/googleAds";
 
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "AW-18273221862";
 
@@ -54,6 +55,9 @@ export function GoogleAnalytics({ hasConsent }: GoogleAnalyticsProps) {
           gtag('js', new Date());
           ${configCalls}
         `}
+      </Script>
+      <Script id="gtag-report-conversion" strategy="afterInteractive">
+        {GTAG_REPORT_CONVERSION_SCRIPT}
       </Script>
     </>
   );
