@@ -101,18 +101,18 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/opengraph-imageV2.jpg",
-        width: 247,
-        height: 211,    
+        url: "/OpenGraphimageV3.jpg",
+        width: 1200,
+        height: 630,
         alt: "Mediterranean Aura",
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Mediterranean Aura",
     description: siteDescription,
-    images: ["/opengraph-imageV2.jpg"],
+    images: ["/OpenGraphimageV3.jpg"],
   },
   ...(googleSiteVerification
     ? { verification: { google: googleSiteVerification } }
