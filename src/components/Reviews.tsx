@@ -26,7 +26,10 @@ export function Reviews() {
 
       <div className="relative w-full max-w-4xl md:max-w-6xl mx-auto">
         <div className="absolute top-0 right-0 md:right-10 z-0 opacity-15">
-          <QuoteOpen size={64} className="text-primary md:w-[82px] md:h-[82px]" />
+          <QuoteOpen
+            size={64}
+            className="text-primary md:w-[82px] md:h-[82px]"
+          />
         </div>
 
         <Swiper
@@ -64,7 +67,10 @@ export function Reviews() {
         </Swiper>
 
         <div className="absolute bottom-16 md:bottom-20 left-0 md:left-10 rotate-180 z-0 opacity-15">
-          <QuoteOpen size={64} className="text-primary md:w-[82px] md:h-[82px]" />
+          <QuoteOpen
+            size={64}
+            className="text-primary md:w-[82px] md:h-[82px]"
+          />
         </div>
       </div>
 
@@ -88,7 +94,7 @@ export function Reviews() {
 
       <div className="mt-12 md:mt-16 pt-6 md:pt-8 flex items-center justify-center">
         <a
-          href="#contact"
+          href="https://search.google.com/local/writereview?placeid=ChIJEduxcR9hlRQRA9T1xPn5WxE"
           className="font-apercu underline text-[0.8rem] md:text-[0.96rem] tracking-[0.22em] md:tracking-[0.24em] uppercase text-primary/85 hover:text-primary transition-colors duration-300 flex items-center gap-2 md:gap-3"
         >
           LET US KNOW WHAT YOU THINK
